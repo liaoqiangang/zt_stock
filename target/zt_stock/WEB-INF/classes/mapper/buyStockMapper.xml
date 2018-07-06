@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace必须指向Dao接口 -->
+<mapper namespace="com.niuniu.ym.dao.BuyStockDao">
+
+    <insert id="insert_stock_bak" parameterType="Stock" useGeneratedKeys="true" keyProperty="id">
+        insert into
+        buy_stock_bak
+        (
+        <include refid="BuyStock_Column_List"/>
+        ) VALUES (
+        <include refid="BuyStock_Attr_List"/>
+        )
+    </insert>
+
+
+    <delete id="delete_stock">
+        delete from  <include refid="BuyStock_table_name"/>
+    </delete>
+
+	
+</mapper> 

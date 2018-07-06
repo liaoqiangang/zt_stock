@@ -1,0 +1,41 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{ font-size:12px; font-family:"微软雅黑"; color:#666; margin:0; padding:0;}
+
+a,button{ cursor:pointer;}
+dl,dt,dd{ margin:0; padding:0;}
+
+.contentDiv{ width:980px; height:auto; margin:0 auto; font-size:12px; color:#666; word-break:break-all;}
+.contentDiv .divMian{ width:auto; padding:10px; height:auto;}
+.contentDiv .divMian h1{ width:100%; border-bottom:2px solid #C30;}
+.contentDiv .divMian h1 span{ padding:4px 8px; background-color:#fff; margin-left:26px; font-size:14px; display:inline-block; margin-bottom:-8px;}
+.contentDiv .divMian .ulFollow{ width:100%; height:auto; clear:both;}
+.contentDiv .divMian .ulFollow li{ width:22%; height:64px; border-radius:2px; float:left; border:1px solid #ccc; margin:23px 0 0 12px; padding:8px 6px; overflow:hidden; cursor:pointer;}
+.contentDiv .divMian .ulFollow li:hover{ border:1px solid #FFA105; box-shadow:0px .2em 13px #FFA105;}
+.contentDiv .divMian .ulFollow li dl{ width:100%; height:auto;}
+.contentDiv .divMian .ulFollow li dl dt{ display:inline-block; *zoom:1; *display:inline; vertical-align:top;}
+.contentDiv .divMian .ulFollow li dl dt img{ width:64px; height:64px;}
+.contentDiv .divMian .ulFollow li dl dd{ display:inline-block; *zoom:1; *display:inline; width:137px; vertical-align:top; margin-left:5px;}
+.contentDiv .divMian .ulFollow li dl dd h2{ width:100%; margin:0; font-weight:normal; height:20px; line-height:20px; font-size:13px;overflow:hidden; white-space:nowrap; text-overflow:ellipsis;}
+.contentDiv .divMian .ulFollow li dl dd .pcontent{ margin:0; width:100%; line-height:25px; display:block; height:49px; white-space:normal; text-overflow:ellipsis; overflow:hidden;}
+.contentDiv .divMian .ulFollow li dl dd .ulinfo{ width:100%; line-height:0; display:none;}
+.contentDiv .divMian .ulFollow li dl dd .ulinfo li{ width:auto; height:auto; border-bottom:none; border:none; box-shadow:none; margin:0; padding:3px 0;}
+.contentDiv .divMian .ulFollow li dl dd .ulinfo li a{ font-weight:normal; font-size:12px; margin:0; display:inline-block; margin-right:8px; line-height:18px;}
+.contentDiv .divMian .ulFollow li dl dd .ulinfo li a:hover{ color:#36F;}
+.contentDiv .divMian .ulFollow li dl dd .ulinfo li a i{ color:#6CBAE4;}
+.contentDiv .divMian .ulFollow li dl dd .ulinfo li:first-child{ text-align:left;}
+.contentDiv .divMian .ulFollow li dl dd .ulinfo li:last-child{ text-align:right;}
+.contentDiv .divMian .ulFollow li dl dd .ulinfo li:hover{ border:none; box-shadow:none;}
+.contentDiv .divMian .ulFollow li dl dd .ulinfo li button{ background-color:#ccc; border:none; color:#fff; width:74px; height:22px; margin-top:-2px; font-size:12px;}
+.contentDiv .divMian .ulFollow li dl dd .ulinfo li button:hover{ background-color:#FE7100; border:none;}
+.contentDiv .divMian .ulFollow li dl dd .ulinfo .liReport{ margin-left:20px;}
+.contentDiv .divMian .ulFollow li dl dd .ulinfo .liReport a{ border:none;}
+
+
+
+
+.aCountSetLeft{border-left:none; padding-left:0;}
+.aCountSetRight{border-right:none; padding-right:0;}
+
+.bName{ width:50% !important;}

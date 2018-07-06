@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace必须指向Dao接口 -->
+<mapper namespace="com.niuniu.ym.dao.MarketDao">
+	<resultMap type="Market" id="MarketResultMap">
+		<id property="id" column="id" />
+      	<result property="curDate" column="cur_date" />
+      	<result property="type" column="type" />
+      	<result property="source" column="source" />
+      	<result property="reviewUrl" column="review_url" />
+	</resultMap>
+	
+	<sql id="Market_table_name">Market</sql>
+	
+	<sql id="Market_Where_Clause">
+		<where>
+			<if test="id != null and id!=0">
+				and id=#{id}
+			</if>
+			<if test="startTime != null and endTime != null">
+				and cur_date BETWEEN #{startTime} and #{endTime}
+			</if>
+			<if test="type != null and type != ''">
+				and type=#{type}
+			</if>
+			<if test="source != null and source != ''">
+				and source=#{source}
+			</if>
+			<if test="reviewUrl != null and reviewUrl != ''">
+				and review_url=#{reviewUrl}
+			</if>
+		</where>
+	</sql>
+	<sql id="Update_Market_Where_Clause">
+		<where>
+			<if test="id != null">
+				and id=#{id}
+			</if>
+			<if test="curDate != null">
+				and cur_date=#{curDate}
+			</if>
+			<if test="type != null and type !=''">
+				and type=#{type}
+			</if>
+			<if test="source != null and source != ''">
+				and source=#{source}
+			</if>
+			<if test="reviewUrl != null and reviewUrl !=''">
+				and review_url=#{reviewUrl}
+			</if>
+		</where>
+	</sql>
+	<sql id="Market_Column_List">
+	      id,
+	      cur_date,
+	      type,
+	      source,
+	      review_url
+	</sql>
+	  <sql id="Market_Attr_List">
+	      #{id},
+	      #{curDate},
+	      #{type},
+	      #{source},
+	      #{reviewUrl}
+	  </sql>
+	  <sql id="Market_Column_List_NoId">
+		  cur_date,
+	      type,
+	      source,
+	      review_url
+	</sql>
+	  <sql id="Market_Attr_List_NoId">
+	      #{curDate},
+	      #{type},
+	      #{source},
+	      #{reviewUrl}
+	  </sql>
+	<select id="listAll" resultMap="MarketResultMap">
+		select <include refid="Market_Column_List" /> from <include refid="Market_table_name" />
+	</select>
+	<select id="searchByFilter" parameterType="MarketFilter" resultMap="MarketResultMap">
+		select
+		<if test="distinct">
+			distinct
+		</if>
+		<include refid="Market_Column_List" />
+		from <include refid="Market_table_name" />
+		<include refid="Market_Where_Clause" />
+		<if test="orderField != null">
+			order by ${orderField}
+		</if>
+		<if test="orderDirection != null">
+			${orderDirection}
+		</if>
+		<if test="pager == true">
+			limit #{rows},#{numPerPage}
+		</if>
+		
+	</select>
+	<select id="selectById" parameterType="java.lang.Integer" resultMap="MarketResultMap">
+		select
+		<include refid="Market_Column_List" />
+		from <include refid="Market_table_name" />
+		where id = #{id}
+	</select>
+	<delete id="deleteById" parameterType="java.lang.Integer">
+		delete from <include refid="Market_table_name" />
+		where id = #{id}
+	</delete>
+	<insert id="insert" parameterType="Market" useGeneratedKeys="true" keyProperty="id">
+		insert into <include refid="Market_table_name" /> (
+	    <include refid="Market_Column_List_NoId" />
+	    ) VALUES (
+	    <include refid="Market_Attr_List_NoId" />
+	    )
+	</insert>
+	<insert id="insertBySelective" parameterType="Market" useGeneratedKeys="true" keyProperty="id">
+		insert into <include refid="Market_table_name" />
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+				<if test="id != null">
+				id,
+			</if>
+				<if test="curDate != null">
+				cur_date,
+			</if>
+				<if test="type != null and type != ''">
+				type,
+			</if>
+				<if test="source != null and source != ''">
+				source,
+			</if>
+				<if test="reviewUrl != null and reviewUrl != ''">
+				review_url,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			
+			<if test="id != null">
+				#{id},
+			</if>
+			<if test="curDate != null">
+				#{cur_date},
+			</if>
+			<if test="type != null and type != ''">
+				#{type},
+			</if>
+			<if test="source != null and source != ''">
+				#{source},
+			</if>
+			<if test="reviewUrl != null and reviewUrl != ''">
+				#{reviewUrl},
+			</if>
+		</trim>
+	</insert>
+	<select id="countByFilter" parameterType="MarketFilter" resultType="java.lang.Integer">
+		select count(1) from <include refid="Market_table_name" />
+		<include refid="Market_Where_Clause" />
+	</select>
+	<update id="updateBySelective" parameterType="Market">
+		update <include refid="Market_table_name" />
+		<set>
+				<if test="id != null">
+				id=#{id},
+			</if>
+				<if test="curDate != null">
+				cur_date=#{curDate},
+			</if>
+				<if test="type != null and type != ''">
+				type=#{type},
+			</if>
+				<if test="source != null and source != ''">
+				source=#{source},
+			</if>
+				<if test="reviewUrl != null and reviewUrl != ''">
+				review_url=#{reviewUrl},
+			</if>
+		</set>
+		where id=#{id}
+	</update>
+	<update id="update" parameterType="Market">
+		update <include refid="Market_table_name" />
+		set 
+			id=#{id},
+			cur_date=#{curDate},
+			type=#{type},
+			source=#{source},
+			review_rl=#{reviewUrl}
+		where id=#{id}
+	</update>
+</mapper> 

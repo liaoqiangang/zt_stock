@@ -1,0 +1,590 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	  <country name="中华人民共和国" id="1">
+	    <subtype name="北京" id="10">
+	    	<item name="东城" id="1000" /> 
+	    	<item name="西城" id="1001" /> 
+	    	<item name="朝阳" id="1004" /> 
+	    	<item name="丰台" id="1005" /> 
+	    	<item name="石景山" id="1006" /> 
+	    	<item name="海淀" id="1007" /> 
+	    	<item name="门头沟" id="1008" /> 
+	    	<item name="房山" id="1009" /> 
+	    	<item name="通州" id="1010" /> 
+	    	<item name="顺义" id="1011" /> 
+	    	<item name="昌平" id="1012" /> 
+	    	<item name="大兴" id="1013" /> 
+	    	<item name="怀柔" id="1014" /> 
+	    	<item name="平谷" id="1015" /> 
+	    	<item name="密云" id="1016" /> 
+	    	<item name="延庆" id="1017" /> 
+	    </subtype>
+	    <subtype name="上海" id="11">
+	      <item name="黄浦区" id="1100" /> 
+	      <item name="卢湾区" id="1101" /> 
+	      <item name="徐汇区" id="1102" /> 
+	      <item name="长宁区" id="1103" /> 
+	      <item name="静安区" id="1104" /> 
+	      <item name="普陀区" id="1105" /> 
+	      <item name="闸北区" id="1106" /> 
+	      <item name="虹口区" id="1107" /> 
+	      <item name="杨浦区" id="1108" /> 
+	      <item name="宝山区" id="1109" /> 
+	      <item name="闵行区" id="1110" /> 
+	      <item name="嘉定区" id="1111" /> 
+	      <item name="浦东新区" id="1112" /> 
+	      <item name="松江区" id="1113" /> 
+	      <item name="金山区" id="1114" /> 
+	      <item name="青浦区" id="1115" /> 
+	      <item name="南汇区" id="1116" /> 
+	      <item name="奉贤区" id="1117" /> 
+	      <item name="崇明县" id="1118" /> 
+	    </subtype>
+	    <subtype name="天津" id="12">
+	      <item name="和平区" id="1200" /> 
+	      <item name="河东区" id="1201" /> 
+	      <item name="河西区" id="1202" /> 
+	      <item name="南开区" id="1203" /> 
+	      <item name="河北区" id="1204" /> 
+	      <item name="红桥区" id="1205" /> 
+	      <item name="塘沽区" id="1206" /> 
+	      <item name="汉沽区" id="1207" /> 
+	      <item name="大港区" id="1208" /> 
+	      <item name="东丽区" id="1209" /> 
+	      <item name="西青区" id="1210" /> 
+	      <item name="津南区" id="1211" /> 
+	      <item name="北辰区" id="1212" /> 
+	      <item name="武清区" id="1213" /> 
+	      <item name="宝坻区" id="1214" /> 
+	      <item name="蓟　县" id="1215" /> 
+	      <item name="宁河县" id="1216" /> 
+	      <item name="静海县" id="1217" /> 
+	    </subtype>
+	    <subtype name="重庆" id="13">
+	      <item name="万州区" id="1300" /> 
+	      <item name="涪陵区" id="1301" /> 
+	      <item name="渝中区" id="1302" /> 
+	      <item name="大渡口区" id="1303" /> 
+	      <item name="江北区" id="1304" /> 
+	      <item name="沙坪坝区" id="1305" /> 
+	      <item name="九龙坡区" id="1306" /> 
+	      <item name="南岸区" id="1307" /> 
+	      <item name="北碚区" id="1308" /> 
+	      <item name="綦江区" id="1309" /> 
+	      <item name="大足区" id="1310" /> 
+	      <item name="渝北区" id="1311" /> 
+	      <item name="巴南区" id="1312" /> 
+	      <item name="黔江区" id="1313" /> 
+	      <item name="长寿区" id="1314" /> 
+	      <item name="江津区" id="1315" /> 
+	      <item name="合川区" id="1316" /> 
+	      <item name="永川区" id="1317" /> 
+	      <item name="南川区" id="1318" /> 
+	    </subtype>
+	    <subtype name="河北" id="14">
+	      <item name="石家庄" id="1400" />
+	      <item name="保定" id="1401" />
+	      <item name="张家口" id="1402" /> 
+	      <item name="承德" id="1403" /> 
+	      <item name="秦皇岛" id="1404" /> 
+	      <item name="唐山" id="1405" /> 
+	      <item name="廊坊" id="1406" /> 
+	      <item name="沧州" id="1407" /> 
+	      <item name="衡水" id="1408" /> 
+	      <item name="邢台" id="1409" /> 
+	      <item name="邯郸" id="1410" /> 
+	      <item name="其他地区" id="1411" /> 
+	    </subtype>
+	    <subtype name="山西" id="15">
+	      <item name="太原市" id="1500" /> 
+	      <item name="大同市" id="1501" /> 
+	      <item name="朔州市" id="1502" /> 
+	      <item name="阳泉市" id="1503" /> 
+	      <item name="长治市" id="1504" /> 
+	      <item name="晋城市" id="1505" /> 
+	      <item name="忻州市" id="1506" /> 
+	      <item name="吕梁市" id="1507" /> 
+	      <item name="晋中市" id="1508" /> 
+	      <item name="临汾市" id="1509" /> 
+	      <item name="运城市" id="1510" /> 
+	      <item name="其它地区" id="1511" /> 
+	    </subtype>
+	    <subtype name="内蒙古" id="16">
+	      <item name="呼和浩特市" id="1600" /> 
+	      <item name="包头市" id="1601" /> 
+	      <item name="乌海市" id="1602" /> 
+	      <item name="赤峰市" id="1603" /> 
+	      <item name="呼伦贝尔" id="1604" /> 
+	      <item name="兴安盟" id="1605" /> 
+	      <item name="锡林郭勒盟" id="1606" /> 
+	      <item name="乌兰察布市" id="1607" /> 
+	      <item name="巴彦淖尔市" id="1608" /> 
+	      <item name="阿拉善盟" id="1609" /> 
+	      <item name="鄂尔多斯市" id="1610" /> 
+	      <item name="通辽市" id="1611" /> 
+	      <item name="其它地区" id="1612" /> 
+	    </subtype>
+	    <subtype name="辽宁" id="17">
+	      <item name="沈阳市" id="1700" /> 
+	      <item name="朝阳市" id="1701" /> 
+	      <item name="阜新市" id="1702" /> 
+	      <item name="铁岭市" id="1703" /> 
+	      <item name="抚顺市" id="1704" /> 
+	      <item name="本溪市" id="1705" /> 
+	      <item name="辽阳市" id="1706" /> 
+	      <item name="鞍山市" id="1708" /> 
+	      <item name="丹东市" id="1709" /> 
+	      <item name="大连市" id="1710" /> 
+	      <item name="营口市" id="1711" /> 
+	      <item name="盘锦市" id="1712" /> 
+	      <item name="锦州市" id="1713" /> 
+	      <item name="葫芦岛市" id="1714" /> 
+	      <item name="其它地区" id="1715" /> 
+	    </subtype>
+	    <subtype name="吉林" id="18">
+	      <item name="长春市" id="1800" /> 
+	      <item name="白城市" id="1801" /> 
+	      <item name="松原市" id="1802" /> 
+	      <item name="吉林市" id="1803" /> 
+	      <item name="四平市" id="1804" /> 
+	      <item name="辽源市" id="1805" /> 
+	      <item name="通化市" id="1806" /> 
+	      <item name="白山市" id="1807" /> 
+	      <item name="延边朝鲜族自治州" id="1808" /> 
+	      <item name="其它地区" id="1809" /> 
+	    </subtype>
+	    <subtype name="黑龙江" id="19">
+	      <item name="哈尔滨市" id="1900" /> 
+	      <item name="齐齐哈尔市" id="1901" /> 
+	      <item name="黑河市" id="1902" /> 
+	      <item name="大庆市" id="1903" /> 
+	      <item name="伊春市" id="1904" /> 
+	      <item name="鹤岗市" id="1905" /> 
+	      <item name="佳木斯市" id="1906" /> 
+	      <item name="双鸭山市" id="1907" /> 
+	      <item name="七台河市" id="1908" /> 
+	      <item name="鸡西市" id="1909" /> 
+	      <item name="牡丹江市" id="1910" /> 
+	      <item name="绥化地区" id="1911" /> 
+	      <item name="大兴安岭地区" id="1912" /> 
+	      <item name="其它地区" id="1913" /> 
+	    </subtype>
+	    <subtype name="江苏" id="20">
+	      <item name="南京市" id="2000" /> 
+	      <item name="徐州市" id="2001" /> 
+	      <item name="连云港市" id="2002" /> 
+	      <item name="宿迁市" id="2003" /> 
+	      <item name="淮阴市" id="2004" /> 
+	      <item name="盐城市" id="2005" /> 
+	      <item name="扬州市" id="2006" /> 
+	      <item name="泰州市" id="2007" /> 
+	      <item name="南通市" id="2008" /> 
+	      <item name="镇江市" id="2009" /> 
+	      <item name="常州市" id="2010" /> 
+	      <item name="无锡市" id="2011" /> 
+	      <item name="苏州市" id="2012" /> 
+	      <item name="淮安市" id="2013" /> 
+	      <item name="其它地区" id="2014" /> 
+	    </subtype>
+	    <subtype name="浙江" id="21">
+	      <item name="杭州市" id="2100" /> 
+	      <item name="湖州市" id="2101" /> 
+	      <item name="嘉兴市" id="2102" /> 
+	      <item name="舟山市" id="2103" /> 
+	      <item name="宁波市" id="2104" /> 
+	      <item name="绍兴市" id="2105" /> 
+	      <item name="金华市" id="2106" /> 
+	      <item name="台州市" id="2107" /> 
+	      <item name="温州市" id="2108" /> 
+	      <item name="丽水市" id="2109" /> 
+	      <item name="衢州市" id="2110" /> 
+	      <item name="其它地区" id="2111" /> 
+	    </subtype>
+	    <subtype name="安徽" id="22">
+	      <item name="合肥市" id="2200" /> 
+	      <item name="宿州市" id="2201" /> 
+	      <item name="淮北市" id="2202" /> 
+	      <item name="阜阳市" id="2203" /> 
+	      <item name="蚌埠市" id="2204" /> 
+	      <item name="淮南市" id="2205" /> 
+	      <item name="滁州市" id="2206" /> 
+	      <item name="马鞍山市" id="2207" /> 
+	      <item name="芜湖市" id="2208" /> 
+	      <item name="铜陵市" id="2209" /> 
+	      <item name="安庆市" id="2210" /> 
+	      <item name="黄山市" id="2211" /> 
+	      <item name="六安市" id="2212" /> 
+	      <item name="巢湖市" id="2213" /> 
+	      <item name="池州市" id="2214" /> 
+	      <item name="宣城市" id="2215" /> 
+	      <item name="亳州市" id="2216" /> 
+	      <item name="其它地区" id="2217" /> 
+	    </subtype>
+	    <subtype name="福建" id="23">
+	      <item name="福州市" id="2300" /> 
+	      <item name="南平市" id="2301" /> 
+	      <item name="三明市" id="2302" /> 
+	      <item name="莆田市" id="2303" /> 
+	      <item name="泉州市" id="2304" /> 
+	      <item name="厦门市" id="2305" /> 
+	      <item name="漳州市" id="2306" /> 
+	      <item name="龙岩市" id="2307" /> 
+	      <item name="宁德市" id="2308" /> 
+	      <item name="其它地区" id="2309" /> 
+	    </subtype>
+	    <subtype name="江西" id="24">
+	      <item name="南昌市" id="2400" /> 
+	      <item name="九江市" id="2401" /> 
+	      <item name="景德镇市" id="2402" /> 
+	      <item name="鹰潭市" id="2403" /> 
+	      <item name="新余市" id="2405" /> 
+	      <item name="萍乡市" id="2406" /> 
+	      <item name="赣州市" id="2407" /> 
+	      <item name="上饶市" id="2408" /> 
+	      <item name="抚州市" id="2409" /> 
+	      <item name="宜春市" id="2410" /> 
+	      <item name="吉安市" id="2411" /> 
+	      <item name="其它地区" id="2412" />
+	    </subtype>
+	    <subtype name="山东" id="25">
+	      <item name="济南市" id="2500" /> 
+	      <item name="聊城市" id="2501" /> 
+	      <item name="德州市" id="2502" /> 
+	      <item name="东营市" id="2503" /> 
+	      <item name="淄博市" id="2504" /> 
+	      <item name="潍坊市" id="2505" /> 
+	      <item name="烟台市" id="2506" /> 
+	      <item name="威海市" id="2507" /> 
+	      <item name="青岛市" id="2508" /> 
+	      <item name="日照市" id="2509" /> 
+	      <item name="临沂市" id="2510" /> 
+	      <item name="枣庄市" id="2511" /> 
+	      <item name="济宁市" id="2512" /> 
+	      <item name="泰安市" id="2513" /> 
+	      <item name="莱芜市" id="2514" /> 
+	      <item name="滨州市" id="2515" /> 
+	      <item name="菏泽市" id="2516" /> 
+	      <item name="其它地区" id="2517" /> 
+	    </subtype>
+	    <subtype name="河南" id="28">
+	      <item name="郑州市" id="2800" /> 
+	      <item name="三门峡市" id="2801" /> 
+	      <item name="洛阳市" id="2802" /> 
+	      <item name="焦作市" id="2803" /> 
+	      <item name="新乡市" id="2804" /> 
+	      <item name="鹤壁市" id="2805" /> 
+	      <item name="安阳市" id="2806" /> 
+	      <item name="濮阳市" id="2807" /> 
+	      <item name="开封市" id="2808" /> 
+	      <item name="商丘市" id="2809" /> 
+	      <item name="许昌市" id="2810" /> 
+	      <item name="漯河市" id="2811" /> 
+	      <item name="平顶山市" id="2812" /> 
+	      <item name="南阳市" id="2813" /> 
+	      <item name="信阳市" id="2814" /> 
+	      <item name="济源市" id="2815" /> 
+	      <item name="周口市" id="2816" /> 
+	      <item name="驻马店市" id="2817" /> 
+	      <item name="其它地区" id="2818" /> 
+	    </subtype>
+	    <subtype name="湖北" id="29">
+	      <item name="武汉市" id="2900" /> 
+	      <item name="十堰市" id="2901" /> 
+	      <item name="襄樊市" id="2902" /> 
+	      <item name="荆门市" id="2903" /> 
+	      <item name="孝感市" id="2904" /> 
+	      <item name="黄冈市" id="2905" /> 
+	      <item name="鄂州市" id="2906" /> 
+	      <item name="黄石市" id="2907" /> 
+	      <item name="咸宁市" id="2908" /> 
+	      <item name="荆州市" id="2909" /> 
+	      <item name="宜昌市" id="2910" /> 
+	      <item name="随州市" id="2911" /> 
+	      <item name="仙桃市" id="2912" /> 
+	      <item name="天门市" id="2913" /> 
+	      <item name="潜江市" id="2914" /> 
+	      <item name="神农架林区" id="2915" /> 
+	      <item name="恩施土家族苗族自治州" id="2916" /> 
+	      <item name="其它地区" id="2917" /> 
+	    </subtype>
+	    <subtype name="湖南" id="30"> 
+	      <item name="长沙市" id="3000" /> 
+	      <item name="张家界市" id="3001" /> 
+	      <item name="常德市" id="3002" /> 
+	      <item name="益阳市" id="3003" /> 
+	      <item name="岳阳市" id="3004" /> 
+	      <item name="株洲市" id="3005" /> 
+	      <item name="湘潭市" id="3006" /> 
+	      <item name="衡阳市" id="3007" /> 
+	      <item name="郴州市" id="3008" /> 
+	      <item name="永州市" id="3009" /> 
+	      <item name="邵阳市" id="3010" /> 
+	      <item name="怀化市" id="3011" /> 
+	      <item name="娄底市" id="3012" /> 
+	      <item name="湘西土家族苗族自治州" id="3013" /> 
+	      <item name="其它地区" id="3014" /> 
+	    </subtype>
+	    <subtype name="广东" id="31"> 
+	      <item name="广州市" id="3100" /> 
+	      <item name="清远市" id="3101" /> 
+	      <item name="韶关市" id="3102" /> 
+	      <item name="河源市" id="3103" /> 
+	      <item name="梅州市" id="3104" /> 
+	      <item name="潮州市" id="3105" /> 
+	      <item name="汕头市" id="3106" /> 
+	      <item name="揭阳市" id="3107" /> 
+	      <item name="汕尾市" id="3108" /> 
+	      <item name="惠州市" id="3109" /> 
+	      <item name="东莞市" id="3110" /> 
+	      <item name="深圳市" id="3111" /> 
+	      <item name="珠海市" id="3112" /> 
+	      <item name="中山市" id="3113" /> 
+	      <item name="江门市" id="3114" /> 
+	      <item name="佛山市" id="3115" /> 
+	      <item name="肇庆市" id="3116" /> 
+	      <item name="云浮市" id="3117" /> 
+	      <item name="阳江市" id="3118" /> 
+	      <item name="茂名市" id="3119" /> 
+	      <item name="湛江市" id="3120" /> 
+	      <item name="其它地区" id="3121" /> 
+	    </subtype>
+	    <subtype name="广西" id="32">
+	      <item name="南宁市" id="3200" /> 
+	      <item name="桂林市" id="3201" /> 
+	      <item name="柳州市" id="3202" /> 
+	      <item name="梧州市" id="3203" /> 
+	      <item name="贵港市" id="3204" /> 
+	      <item name="玉林市" id="3205" /> 
+	      <item name="钦州市" id="3206" /> 
+	      <item name="北海市" id="3207" /> 
+	      <item name="防城港市" id="3208" /> 
+	      <item name="百色市" id="3209" /> 
+	      <item name="河池地区" id="3210" /> 
+	      <item name="贺州地区" id="3211" /> 
+	      <item name="崇左市" id="3212" /> 
+	      <item name="凭祥市" id="3213" /> 
+	      <item name="来宾市" id="3214" /> 
+	      <item name="其它地区" id="3215" />  
+	    </subtype>
+	    <subtype name="海南" id="33"> 
+	      <item name="海口市" id="3300" /> 
+	      <item name="三亚市" id="3301" /> 
+	      <item name="琼山市" id="3302" /> 
+	      <item name="文昌市" id="3303" /> 
+	      <item name="琼海市" id="3304" /> 
+	      <item name="万宁市" id="3305" /> 
+	      <item name="东方市" id="3306" /> 
+	      <item name="儋州市" id="3307" /> 
+	      <item name="临高县" id="3308" /> 
+	      <item name="澄迈县" id="3309" /> 
+	      <item name="定安县" id="3310" /> 
+	      <item name="屯昌县" id="3311" /> 
+	      <item name="昌江黎族自治县" id="3312" /> 
+	      <item name="白沙黎族自治县" id="3313" /> 
+	      <item name="琼中黎族苗族自治县" id="3314" /> 
+	      <item name="陵水黎族自治县" id="3315" /> 
+	      <item name="保亭黎族苗族自治县" id="3316" /> 
+	      <item name="乐东黎族自治县" id="3317" /> 
+	      <item name="五指山市" id="3318" /> 
+	      <item name="其它地区" id="3319" /> 
+	    </subtype>
+	    <subtype name="四川" id="34"> 
+	      <item name="成都市" id="3400" /> 
+	      <item name="广元市" id="3401" /> 
+	      <item name="绵阳市" id="3402" /> 
+	      <item name="德阳市" id="3403" /> 
+	      <item name="南充市" id="3404" /> 
+	      <item name="广安市" id="3405" /> 
+	      <item name="遂宁市" id="3406" /> 
+	      <item name="内江市" id="3407" /> 
+	      <item name="乐山市" id="3408" /> 
+	      <item name="自贡市" id="3409" /> 
+	      <item name="泸州市" id="3410" /> 
+	      <item name="宜宾市" id="3411" /> 
+	      <item name="攀枝花市" id="3412" /> 
+	      <item name="巴中市" id="3413" /> 
+	      <item name="达州市" id="3414" /> 
+	      <item name="资阳市" id="3415" /> 
+	      <item name="眉山市" id="3416" /> 
+	      <item name="雅安市" id="3417" /> 
+	      <item name="阿坝藏族羌族自治州" id="3418" /> 
+	      <item name="甘孜藏族自治州" id="3419" /> 
+	      <item name="凉山彝族自治州" id="3420" /> 
+	      <item name="其它地区" id="3421" /> 
+	    </subtype>
+	    <subtype name="贵州" id="35"> 
+	      <item name="贵阳市" id="3500" /> 
+	      <item name="六盘水市" id="3501" /> 
+	      <item name="遵义市" id="3502" /> 
+	      <item name="毕节地区" id="3503" /> 
+	      <item name="铜仁地区" id="3504" /> 
+	      <item name="安顺市" id="3505" /> 
+	      <item name="黔东南苗族侗族自治州" id="3506" /> 
+	      <item name="黔南布依族苗族自治州" id="3507" /> 
+	      <item name="黔西南布依族苗族自治州" id="3508" /> 
+	      <item name="其它地区" id="3509" /> 
+	    </subtype>
+	    <subtype name="云南" id="36"> 
+	      <item name="昆明市" id="3600" /> 
+	      <item name="曲靖市" id="3601" /> 
+	      <item name="玉溪市" id="3602" /> 
+	      <item name="丽江市" id="3603" /> 
+	      <item name="昭通市" id="3604" /> 
+	      <item name="思茅市" id="3605" /> 
+	      <item name="临沧地区" id="3606" /> 
+	      <item name="保山市" id="3607" /> 
+	      <item name="德宏傣族景颇族自治州" id="3608" /> 
+	      <item name="怒江傈傈族自治州" id="3609" /> 
+	      <item name="迪庆藏族自治州" id="3610" /> 
+	      <item name="大理白族自治州" id="3611" /> 
+	      <item name="楚雄彝族自治州" id="3612" /> 
+	      <item name="红河哈尼族彝族自治州" id="3613" /> 
+	      <item name="文山壮族苗族自治州" id="3614" /> 
+	      <item name="西双版纳傣族自治州" id="3615" /> 
+	      <item name="其它地区" id="3616" /> 
+	    </subtype>
+	    <subtype name="西藏" id="37"> 
+	      <item name="拉萨市" id="3700" /> 
+	      <item name="那曲地区" id="3701" /> 
+	      <item name="昌都地区" id="3702" /> 
+	      <item name="林芝地区" id="3703" /> 
+	      <item name="山南地区" id="3704" /> 
+	      <item name="日喀则地区" id="3705" /> 
+	      <item name="阿里地区" id="3706" /> 
+	      <item name="其它地区" id="3708" /> 
+	    </subtype>
+	    <subtype name="陕西" id="38"> 
+	      <item name="西安市" id="3801" /> 
+	      <item name="延安市" id="3802" /> 
+	      <item name="铜川市" id="3803" /> 
+	      <item name="渭南市" id="3804" /> 
+	      <item name="咸阳市" id="3805" /> 
+	      <item name="宝鸡市" id="3806" /> 
+	      <item name="汉中市" id="3807" /> 
+	      <item name="榆林市" id="3808" /> 
+	      <item name="商洛市" id="3809" /> 
+	      <item name="安康市" id="3810" /> 
+	      <item name="其它地区" id="3811" /> 
+	    </subtype>
+	    <subtype name="甘肃" id="39"> 
+	      <item name="兰州市" id="3900" /> 
+	      <item name="嘉峪关市" id="3901" /> 
+	      <item name="金昌市" id="3902" /> 
+	      <item name="白银市" id="3903" /> 
+	      <item name="天水市" id="3904" /> 
+	      <item name="酒泉市" id="3905" /> 
+	      <item name="张掖市" id="3906" /> 
+	      <item name="武威市" id="3907" /> 
+	      <item name="庆阳市" id="3908" /> 
+	      <item name="平凉市" id="3910" /> 
+	      <item name="定西市" id="3911" /> 
+	      <item name="陇南地区" id="3912" /> 
+	      <item name="临夏回族自治州" id="3913" /> 
+	      <item name="甘南藏族自治州" id="3914" /> 
+	      <item name="玉门市" id="3915" /> 
+	      <item name="敦煌市" id="3916" /> 
+	      <item name="其它地区" id="3917" /> 
+	    </subtype>
+	    <subtype name="青海" id="40"> 
+	      <item name="西宁市" id="4000" /> 
+	      <item name="海东地区" id="4001" /> 
+	      <item name="海北藏族自治州" id="4002" /> 
+	      <item name="海南藏族自治州" id="4003" /> 
+	      <item name="黄南藏族自治州" id="4004" /> 
+	      <item name="果洛藏族自治州" id="4005" /> 
+	      <item name="玉树藏族自治州" id="4006" /> 
+	      <item name="海西蒙古族藏族自治州" id="4007" /> 
+	      <item name="其它地区" id="4008" /> 
+	    </subtype>
+	    <subtype name="宁夏" id="41"> 
+	      <item name="银川市" id="4100" /> 
+	      <item name="石嘴山市" id="4101" /> 
+	      <item name="吴忠市" id="4102" /> 
+	      <item name="固原市" id="4103" /> 
+	      <item name="其它地区" id="4104" /> 
+	    </subtype>
+	    <subtype name="新疆" id="42">
+	      <item name="乌鲁木齐市" id="4200" /> 
+	      <item name="克拉玛依市" id="4201" /> 
+	      <item name="石河子市" id="4202" /> 
+	      <item name="喀什地区" id="4203" /> 
+	      <item name="阿克苏地区" id="4204" /> 
+	      <item name="和田地区" id="4205" /> 
+	      <item name="吐鲁番地区" id="4206" /> 
+	      <item name="哈密地区" id="4207" /> 
+	      <item name="克孜勒苏柯尔克孜自治州" id="4208" /> 
+	      <item name="博尔塔拉蒙古自治州" id="4209" /> 
+	      <item name="昌吉回族自治州" id="4210" /> 
+	      <item name="巴音郭楞蒙古自治州" id="4211" /> 
+	      <item name="伊犁哈萨克自治州" id="4212" /> 
+	      <item name="其它地区" id="4213" />  
+	    </subtype>
+	    <subtype name="香港" id="43"> 
+	      <item name="中西区" id="4300" /> 
+	      <item name="湾仔区" id="4301" /> 
+	      <item name="东区" id="4302" /> 
+	      <item name="南区" id="4303" /> 
+	      <item name="油尖旺区" id="4304" /> 
+	      <item name="深水埗区" id="4305" /> 
+	      <item name="九龙城区" id="4306" /> 
+	      <item name="黄大仙区" id="4307" /> 
+	      <item name="观塘区" id="4308" /> 
+	      <item name="北区" id="4309" /> 
+	      <item name="大埔区" id="4310" /> 
+	      <item name="沙田区" id="4311" /> 
+	      <item name="西贡区" id="4312" /> 
+	      <item name="荃湾区" id="4313" /> 
+	      <item name="屯门区" id="4314" /> 
+	      <item name="元朗区" id="4315" /> 
+	      <item name="葵青区" id="4316" /> 
+	      <item name="离岛区" id="4317" /> 
+	    </subtype>
+	    <subtype name="澳门" id="44"> 
+	      <item name="花地玛堂区" id="4400" /> 
+	      <item name="圣安多尼堂区" id="4401" /> 
+	      <item name="大堂区" id="4402" /> 
+	      <item name="望德堂区" id="4403" /> 
+	      <item name="风顺堂区" id="4404" /> 
+	      <item name="嘉模堂区" id="4405" /> 
+	      <item name="圣方济各堂区" id="4406" /> 
+	    </subtype>
+	    <subtype name="台湾" id="45">
+	      <item name="台北市" id="4500" /> 
+	      <item name="高雄市" id="4501" /> 
+	      <item name="台南市" id="4502" /> 
+	      <item name="台中市" id="4503" /> 
+	      <item name="基隆市" id="4504" /> 
+	      <item name="新竹市" id="4506" /> 
+	      <item name="嘉义市" id="4507" /> 
+	      <item name="台北县" id="4508" /> 
+	      <item name="宜兰县" id="4509" /> 
+	      <item name="新竹县" id="4510" /> 
+	      <item name="桃园县" id="4511" /> 
+	      <item name="苗栗县" id="4512" /> 
+	      <item name="台中县" id="4513" /> 
+	      <item name="彰化县" id="4514" /> 
+	      <item name="南投县" id="4515" /> 
+	      <item name="嘉义县" id="4516" /> 
+	      <item name="云林县" id="4517" /> 
+	      <item name="台南县" id="4518" /> 
+	      <item name="高雄县" id="4519" /> 
+	      <item name="屏东县" id="4520" /> 
+	      <item name="台东县" id="4521" /> 
+	      <item name="花莲县" id="4522" /> 
+	      <item name="澎湖县" id="4523" /> 
+	      <item name="其它地区" id="4524" /> 
+	    </subtype>
+	  </country>
+	  <country name="美国" id="2" />
+	  <country name="日本" id="3" />
+	  <country name="英国" id="4" />
+	  <country name="法国" id="5" />
+	  <country name="德国" id="6" />
+	  <country name="加拿大" id="7" />
+	  <country name="澳大利亚" id="8" />
+	  <country name="俄罗斯" id="9" />
+	  <country name="新西兰" id="10" />
+	  <country name="意大利" id="11" />
+	  <country name="韩国" id="12" />
+	  <country name="其他国家" id="13" />
+</root>

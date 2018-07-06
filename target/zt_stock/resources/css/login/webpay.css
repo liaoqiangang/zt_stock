@@ -1,0 +1,22 @@
+@charset "utf-8";
+/* CSS Document */
+*{ margin:0; padding:0; font-size:12px; font-family:Verdana,"宋体"; color:#666;}
+body{ margin:0; padding:0; background-color:#fff;}
+ul{ list-style:none;}
+
+/*充值页面*/
+.payPage{ margin:0 auto; width:100%;}
+.payPage .logoDiv{ width:100%; height:70px; border-bottom:2px solid #ccc;}
+.payPage .payDiv{ width:100%; border:1px solid #ddd; border-radius:4px; margin-top:20px; margin-bottom:20px;}
+.payPage .payDiv .divTitle_p{ background-color:#f3f3f3; height:35px; font-size:20px; border-top-left-radius:4px; border-top-right-radius:4px; line-height:35px; text-indent:20px;}
+.payPage .payDiv .divCon_p{ width:100%; height:auto; padding-bottom:15px;}
+.payPage .payDiv .divCon_p div{ width:100%; padding:15px 0;}
+.payPage .payDiv .divCon_p div span{ display:inline-block; width:152px; text-align:right; font-size:14px; margin-right:8px;}
+.payPage .payDiv .divCon_p div label{ font-size:14px; margin-right:10px;}
+.payPage .payDiv .divCon_p div input[type="text"]{width: 162px;padding: 7px 8px}
+.payPage .payDiv .divCon_p div img{ vertical-align:middle; margin-top:-6px;}
+.payPage .payButtonDiv{ width:100%; height:auto;}
+.payPage .payButtonDiv button{ background-color:#e74649; color:#fff; font-size:14px; height:30px; width:120px; border:none; margin-left:159px; margin-top:20px; margin-bottom:20px; cursor:pointer;}
+.payPage .payButtonDiv button:hover{opacity:0.7;filter:alpha(opacity=70);}
+.error{color:red}
+body > .mid_mian {height: auto;min-height: 87.5%;}

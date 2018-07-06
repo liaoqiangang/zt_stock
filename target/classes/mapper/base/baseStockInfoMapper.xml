@@ -1,0 +1,507 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace必须指向Dao接口 -->
+<mapper namespace="com.niuniu.ym.dao.StockInfoDao">
+	<resultMap type="StockInfo" id="StockInfoResultMap">
+		<id property="id" column="id" />
+      	<result property="stockCode" column="stockCode" />
+      	<result property="stockName" column="stockName" />
+      	<result property="stockType" column="stockType" />
+      	<result property="plate" column="plate" />
+      	<result property="listedTime" column="listedTime" />
+      	<result property="issueTime" column="issueTime" />
+      	<result property="issuePERate" column="issuePERate" />
+      	<result property="issueType" column="issueType" />
+      	<result property="stockPrice" column="stockPrice" />
+      	<result property="issuePrice" column="issuePrice" />
+      	<result property="issueNumber" column="issueNumber" />
+      	<result property="totalIssuePrice" column="totalIssuePrice" />
+      	<result property="placementPrice" column="placementPrice" />
+      	<result property="openPrice" column="openPrice" />
+      	<result property="closePrice" column="closePrice" />
+      	<result property="turnoverRate" column="turnoverRate" />
+      	<result property="topPrice" column="topPrice" />
+      	<result property="placeWinningRate" column="placeWinningRate" />
+      	<result property="priceWinningRate" column="priceWinningRate" />
+	</resultMap>
+	
+	<sql id="StockInfo_table_name">stock_info</sql>
+	
+	<sql id="StockInfo_Where_Clause">
+		<where>
+			<if test="id != null and id != 0">
+				and id=#{id}
+			</if>
+			<if test="stockCode != null and stockCode != ''">
+				and stockCode=#{stockCode}
+			</if>
+			<if test="stockName != null and stockName != ''">
+				and stockName=#{stockName}
+			</if>
+			<if test="stockType != null and stockType != ''">
+				and stockType=#{stockType}
+			</if>
+			<if test="plate != null and plate != ''">
+				and plate=#{plate}
+			</if>
+			<if test="listedTime != null">
+				and listedTime=#{listedTime}
+			</if>
+			<if test="issueTime != null">
+				and issueTime=#{issueTime}
+			</if>
+			<if test="issuePERate != null and issuePERate != ''">
+				and issuePERate=#{issuePERate}
+			</if>
+			<if test="issueType != null and issueType != ''">
+				and issueType=#{issueType}
+			</if>
+			<if test="stockPrice != null and stockPrice != ''">
+				and stockPrice=#{stockPrice}
+			</if>
+			<if test="issuePrice != null and issuePrice != ''">
+				and issuePrice=#{issuePrice}
+			</if>
+			<if test="issueNumber != null and issueNumber != ''">
+				and issueNumber=#{issueNumber}
+			</if>
+			<if test="totalIssuePrice != null and totalIssuePrice != ''">
+				and totalIssuePrice=#{totalIssuePrice}
+			</if>
+			<if test="placementPrice != null and placementPrice != ''">
+				and placementPrice=#{placementPrice}
+			</if>
+			<if test="openPrice != null and openPrice != ''">
+				and openPrice=#{openPrice}
+			</if>
+			<if test="closePrice != null and closePrice != ''">
+				and closePrice=#{closePrice}
+			</if>
+			<if test="turnoverRate != null and turnoverRate != ''">
+				and turnoverRate=#{turnoverRate}
+			</if>
+			<if test="topPrice != null and topPrice != ''">
+				and topPrice=#{topPrice}
+			</if>
+			<if test="placeWinningRate != null and placeWinningRate != ''">
+				and placeWinningRate=#{placeWinningRate}
+			</if>
+			<if test="priceWinningRate != null and priceWinningRate != ''">
+				and priceWinningRate=#{priceWinningRate}
+			</if>
+		</where>
+	</sql>
+	<sql id="Update_StockInfo_Where_Clause">
+		<where>
+			<if test="id != null">
+				and id=#{id}
+			</if>
+			<if test="stockCode != null and stockCode != ''">
+				and stockCode=#{stockCode}
+			</if>
+			<if test="stockName != null and stockName != ''">
+				and stockName=#{stockName}
+			</if>
+			<if test="stockType != null and stockType != ''">
+				and stockType=#{stockType}
+			</if>
+			<if test="plate != null and plate != ''">
+				and plate=#{plate}
+			</if>
+			<if test="listedTime != null">
+				and listedTime=#{listedTime}
+			</if>
+			<if test="issueTime != null">
+				and issueTime=#{issueTime}
+			</if>
+			<if test="issuePERate != null and issuePERate != ''">
+				and issuePERate=#{issuePERate}
+			</if>
+			<if test="issueType != null and issueType != ''">
+				and issueType=#{issueType}
+			</if>
+			<if test="stockPrice != null and stockPrice != ''">
+				and stockPrice=#{stockPrice}
+			</if>
+			<if test="issuePrice != null and issuePrice != ''">
+				and issuePrice=#{issuePrice}
+			</if>
+			<if test="issueNumber != null and issueNumber != ''">
+				and issueNumber=#{issueNumber}
+			</if>
+			<if test="totalIssuePrice != null and totalIssuePrice != ''">
+				and totalIssuePrice=#{totalIssuePrice}
+			</if>
+			<if test="placementPrice != null and placementPrice != ''">
+				and placementPrice=#{placementPrice}
+			</if>
+			<if test="openPrice != null and openPrice != ''">
+				and openPrice=#{openPrice}
+			</if>
+			<if test="closePrice != null and closePrice != ''">
+				and closePrice=#{closePrice}
+			</if>
+			<if test="turnoverRate != null and turnoverRate != ''">
+				and turnoverRate=#{turnoverRate}
+			</if>
+			<if test="topPrice != null and topPrice != ''">
+				and topPrice=#{topPrice}
+			</if>
+			<if test="placeWinningRate != null and placeWinningRate != ''">
+				and placeWinningRate=#{placeWinningRate}
+			</if>
+			<if test="priceWinningRate != null and priceWinningRate != ''">
+				and priceWinningRate=#{priceWinningRate}
+			</if>
+		</where>
+	</sql>
+	<sql id="StockInfo_Column_List">
+	      id,
+	      stockCode,
+	      stockName,
+	      stockType,
+	      plate,
+	      listedTime,
+	      issueTime,
+	      issuePERate,
+	      issueType,
+	      stockPrice,
+	      issuePrice,
+	      issueNumber,
+	      totalIssuePrice,
+	      placementPrice,
+	      openPrice,
+	      closePrice,
+	      turnoverRate,
+	      topPrice,
+	      placeWinningRate,
+	      priceWinningRate
+	</sql>
+	  <sql id="StockInfo_Attr_List">
+	      #{id},
+	      #{stockCode},
+	      #{stockName},
+	      #{stockType},
+	      #{plate},
+	      #{listedTime},
+	      #{issueTime},
+	      #{issuePERate},
+	      #{issueType},
+	      #{stockPrice},
+	      #{issuePrice},
+	      #{issueNumber},
+	      #{totalIssuePrice},
+	      #{placementPrice},
+	      #{openPrice},
+	      #{closePrice},
+	      #{turnoverRate},
+	      #{topPrice},
+	      #{placeWinningRate},
+	      #{priceWinningRate}
+	  </sql>
+	  <sql id="StockInfo_Column_List_NoId">
+			stockCode,
+			stockName,
+			stockType,
+			plate,
+			listedTime,
+			issueTime,
+			issuePERate,
+			issueType,
+			stockPrice,
+			issuePrice,
+			issueNumber,
+			totalIssuePrice,
+			placementPrice,
+			openPrice,
+			closePrice,
+			turnoverRate,
+			topPrice,
+			placeWinningRate,
+			priceWinningRate
+	</sql>
+	  <sql id="StockInfo_Attr_List_NoId">
+	      #{stockCode},
+	      #{stockName},
+	      #{stockType},
+	      #{plate},
+	      #{listedTime},
+	      #{issueTime},
+	      #{issuePERate},
+	      #{issueType},
+	      #{stockPrice},
+	      #{issuePrice},
+	      #{issueNumber},
+	      #{totalIssuePrice},
+	      #{placementPrice},
+	      #{openPrice},
+	      #{closePrice},
+	      #{turnoverRate},
+	      #{topPrice},
+	      #{placeWinningRate},
+	      #{priceWinningRate}
+	  </sql>
+	<select id="listAll" resultMap="StockInfoResultMap">
+		select <include refid="StockInfo_Column_List" /> from <include refid="StockInfo_table_name" />
+	</select>
+	<select id="searchByFilter" parameterType="StockInfoFilter" resultMap="StockInfoResultMap">
+		select
+		<if test="distinct">
+			distinct
+		</if>
+		<include refid="StockInfo_Column_List" />
+		from <include refid="StockInfo_table_name" />
+		<include refid="StockInfo_Where_Clause" />
+		<if test="orderField != null">
+			order by ${orderField}
+		</if>
+		<if test="orderDirection != null">
+			${orderDirection}
+		</if>
+		<if test="pager == true">
+			limit #{rows},#{numPerPage}
+		</if>
+		
+	</select>
+	<select id="selectById" parameterType="java.lang.Integer" resultMap="StockInfoResultMap">
+		select
+		<include refid="StockInfo_Column_List" />
+		from <include refid="StockInfo_table_name" />
+		where id = #{id}
+	</select>
+	<delete id="deleteById" parameterType="java.lang.Integer">
+		delete from <include refid="StockInfo_table_name" />
+		where id = #{id}
+	</delete>
+	<insert id="insert" parameterType="StockInfo" useGeneratedKeys="true" keyProperty="id">
+		insert into <include refid="StockInfo_table_name" /> (
+	    <include refid="StockInfo_Column_List_NoId" />
+	    ) VALUES (
+	    <include refid="StockInfo_Attr_List_NoId" />
+	    )
+	</insert>
+	<insert id="insertBySelective" parameterType="StockInfo" useGeneratedKeys="true" keyProperty="id">
+		insert into <include refid="StockInfo_table_name" />
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+				<if test="id != null">
+				id,
+			</if>
+				<if test="stockCode != null and stockCode != ''">
+				stockCode,
+			</if>
+				<if test="stockName != null and stockName != ''">
+				stockName,
+			</if>
+				<if test="stockType != null and stockType != ''">
+				stockType,
+			</if>
+				<if test="plate != null and plate != ''">
+				plate,
+			</if>
+				<if test="listedTime != null">
+				listedTime,
+			</if>
+				<if test="issueTime != null">
+				issueTime,
+			</if>
+				<if test="issuePERate != null and issuePERate != ''">
+				issuePERate,
+			</if>
+				<if test="issueType != null and issueType != ''">
+				issueType,
+			</if>
+				<if test="stockPrice != null and stockPrice != ''">
+				stockPrice,
+			</if>
+				<if test="issuePrice != null and issuePrice != ''">
+				issuePrice,
+			</if>
+				<if test="issueNumber != null and issueNumber != ''">
+				issueNumber,
+			</if>
+				<if test="totalIssuePrice != null and totalIssuePrice != ''">
+				totalIssuePrice,
+			</if>
+				<if test="placementPrice != null and placementPrice != ''">
+				placementPrice,
+			</if>
+				<if test="openPrice != null and openPrice != ''">
+				openPrice,
+			</if>
+				<if test="closePrice != null and closePrice != ''">
+				closePrice,
+			</if>
+				<if test="turnoverRate != null and turnoverRate != ''">
+				turnoverRate,
+			</if>
+				<if test="topPrice != null and topPrice != ''">
+				topPrice,
+			</if>
+				<if test="placeWinningRate != null and placeWinningRate != ''">
+				placeWinningRate,
+			</if>
+				<if test="priceWinningRate != null and priceWinningRate != ''">
+				priceWinningRate,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			
+			<if test="id != null">
+				#{id},
+			</if>
+			<if test="stockCode != null and stockCode != ''">
+				#{stockCode},
+			</if>
+			<if test="stockName != null and stockName != ''">
+				#{stockName},
+			</if>
+			<if test="stockType != null and stockType != ''">
+				#{stockType},
+			</if>
+			<if test="plate != null and plate != ''">
+				#{plate},
+			</if>
+			<if test="listedTime != null">
+				#{listedTime},
+			</if>
+			<if test="issueTime != null">
+				#{issueTime},
+			</if>
+			<if test="issuePERate != null and issuePERate != ''">
+				#{issuePERate},
+			</if>
+			<if test="issueType != null and issueType != ''">
+				#{issueType},
+			</if>
+			<if test="stockPrice != null and stockPrice != ''">
+				#{stockPrice},
+			</if>
+			<if test="issuePrice != null and issuePrice != ''">
+				#{issuePrice},
+			</if>
+			<if test="issueNumber != null and issueNumber != ''">
+				#{issueNumber},
+			</if>
+			<if test="totalIssuePrice != null and totalIssuePrice != ''">
+				#{totalIssuePrice},
+			</if>
+			<if test="placementPrice != null and placementPrice != ''">
+				#{placementPrice},
+			</if>
+			<if test="openPrice != null and openPrice != ''">
+				#{openPrice},
+			</if>
+			<if test="closePrice != null and closePrice != ''">
+				#{closePrice},
+			</if>
+			<if test="turnoverRate != null and turnoverRate != ''">
+				#{turnoverRate},
+			</if>
+			<if test="topPrice != null and topPrice != ''">
+				#{topPrice},
+			</if>
+			<if test="placeWinningRate != null and placeWinningRate != ''">
+				#{placeWinningRate},
+			</if>
+			<if test="priceWinningRate != null and priceWinningRate != ''">
+				#{priceWinningRate},
+			</if>
+		</trim>
+	</insert>
+	<select id="countByFilter" parameterType="StockInfoFilter" resultType="java.lang.Integer">
+		select count(1) from <include refid="StockInfo_table_name" />
+		<include refid="StockInfo_Where_Clause" />
+	</select>
+	<update id="updateBySelective" parameterType="StockInfo">
+		update <include refid="StockInfo_table_name" />
+		<set>
+				<if test="id != null">
+				id=#{id},
+			</if>
+				<if test="stockCode != null and stockCode != ''">
+				stockCode=#{stockCode},
+			</if>
+				<if test="stockName != null and stockName != ''">
+				stockName=#{stockName},
+			</if>
+				<if test="stockType != null and stockType != ''">
+				stockType=#{stockType},
+			</if>
+				<if test="plate != null and plate != ''">
+				plate=#{plate},
+			</if>
+				<if test="listedTime != null">
+				listedTime=#{listedTime},
+			</if>
+				<if test="issueTime != null">
+				issueTime=#{issueTime},
+			</if>
+				<if test="issuePERate != null and issuePERate != ''">
+				issuePERate=#{issuePERate},
+			</if>
+				<if test="issueType != null and issueType != ''">
+				issueType=#{issueType},
+			</if>
+				<if test="stockPrice != null and stockPrice != ''">
+				stockPrice=#{stockPrice},
+			</if>
+				<if test="issuePrice != null and issuePrice != ''">
+				issuePrice=#{issuePrice},
+			</if>
+				<if test="issueNumber != null and issueNumber != ''">
+				issueNumber=#{issueNumber},
+			</if>
+				<if test="totalIssuePrice != null and totalIssuePrice != ''">
+				totalIssuePrice=#{totalIssuePrice},
+			</if>
+				<if test="placementPrice != null and placementPrice != ''">
+				placementPrice=#{placementPrice},
+			</if>
+				<if test="openPrice != null and openPrice != ''">
+				openPrice=#{openPrice},
+			</if>
+				<if test="closePrice != null and closePrice != ''">
+				closePrice=#{closePrice},
+			</if>
+				<if test="turnoverRate != null and turnoverRate != ''">
+				turnoverRate=#{turnoverRate},
+			</if>
+				<if test="topPrice != null and topPrice != ''">
+				topPrice=#{topPrice},
+			</if>
+				<if test="placeWinningRate != null and placeWinningRate != ''">
+				placeWinningRate=#{placeWinningRate},
+			</if>
+				<if test="priceWinningRate != null and priceWinningRate != ''">
+				priceWinningRate=#{priceWinningRate},
+			</if>
+		</set>
+		where id=#{id}
+	</update>
+	<update id="update" parameterType="StockInfo">
+		update <include refid="StockInfo_table_name" />
+		set 
+			id=#{id},
+			stockCode=#{stockCode},
+			stockName=#{stockName},
+			stockType=#{stockType},
+			plate=#{plate},
+			listedTime=#{listedTime},
+			issueTime=#{issueTime},
+			issuePERate=#{issuePERate},
+			issueType=#{issueType},
+			stockPrice=#{stockPrice},
+			issuePrice=#{issuePrice},
+			issueNumber=#{issueNumber},
+			totalIssuePrice=#{totalIssuePrice},
+			placementPrice=#{placementPrice},
+			openPrice=#{openPrice},
+			closePrice=#{closePrice},
+			turnoverRate=#{turnoverRate},
+			topPrice=#{topPrice},
+			placeWinningRate=#{placeWinningRate},
+			priceWinningRate=#{priceWinningRate}
+		where id=#{id}
+	</update>
+</mapper> 

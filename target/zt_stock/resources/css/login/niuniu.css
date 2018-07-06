@@ -1,0 +1,39 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{margin:0;padding:0;}
+a{text-decoration:none;font-family:'微软雅黑';}
+img{border:none;}
+li{list-style:none;}
+
+
+.box{width: 960px;overflow:hidden;margin: 0 auto;}
+.box .head a{width:960px;height: 42px;
+display: block;margin-top: 30px;width: 400px;}
+.box .header{width:960px;float:left;}
+.box .header_l{float:left;width: 496px;height: 375px;position:relative;float:left;margin-top:50px;overflow:hidden;} 
+.box .header_l ul{position:absolute;top:0;left:0;z-index:1;height:375px;}
+.box .header_l ul li{width:496px;height:375px;display:block;float:left;}
+.box .header_l a{width: 496px;height: 375px;display:block;}
+.box .header_l ol{position:absolute;bottom:0;right:10px; z-index:2;}
+.box .header_l ol li{float:left;width:7px;height:7px;margin-left:4px;overflow:hidden;background:url(../../images/login/num.gif) no-repeat right 0; cursor:pointer;}
+
+.box .header_r {float:right;width:280px;margin-top:50px;}
+.box .header_r p{width:280px;text-indent:10px;font-weight:bold;}
+
+.box .header_r .txt{width:278px;height:32px;border: 1px solid #888;margin-top:10px;border-radius:5px;float:left;position:relative;}
+.box .header_r .txt input{border:none;width:240px;height:12px;padding:10px;margin-left:10px;outline:none;}
+.box .header_r .txt span{position:absolute;width:100px;height:12px;left:10px;top:8px;}
+.box .header_r .sel{position:relative;width:280px;height:32px;margin-top:10px;color:#c0c0c0;line-height:32px;color:#c0c0c0;margin-top:94px;}
+.box .header_r .sel a{color:#0055a2;font-size:12px;}
+.box .header_r .btn{border: 1px solid #004788;color: #ffffff;border-radius: 2px;background: #0055a2;display:block;margin-top:10px;width:72px;height:24px;text-align:center;line-height:24px;}
+.box .header_r .btn:hover{background: #006aca;border: 1px solid #004788;}
+
+
+.new{width:100%;height:350px;background:#f8f8f8;margin-top: 60px;border-top: 2px solid #f3f3f3;position:relative;}
+.new .common{width:960px;padding-top: 30px;padding-bottom: 40px;float:left;position:absolute;left:50%;margin-left:-480px;}
+.new ul{width:430px;float:left;}
+.new li{margin-top:8px;}
+.new li a{color:black;}
+.new dl{float:right;width:300px;}
+.new dl dd{float:left;margin-top:8px;}

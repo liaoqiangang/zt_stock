@@ -1,0 +1,116 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+body{ color:#292929;}
+b{ margin:0; padding:0;}
+
+/**--------------------------基本信息---------------------------**/
+/*控制三个用户类别*/
+div[name='1']{ display:none; margin-top:40px;}
+div[name='2']{ display:none; margin-top:40px;}
+div[name='3']{ display:none; margin-top:40px;}
+
+.divRCon .divBox .div_content .citySelect{ width:186px;}
+.divRCon .divBox .div_content .indSelect{ width:170px;}
+.divRCon .divBox .div_content .emCom{ font-style:normal; line-height:36px; font-size:13px;}
+
+.btnOk{ margin-top:0; margin-left:231px;}
+.btnCancel{ left:379px; margin-top:0;}
+/*帐号*/
+.divRCon .accountSeti{ width:223px; line-height:33px; display:inline-block; font-size:13px;}
+.divRCon .accountSeta{ font-size:13px;  color:#2884A9; padding:0 9px; display:inline-block; margin-left:16px;}
+.divRCon .accountSeta:hover{ color:#FC0;}
+.divRCon .accountSetb{ color:#FFFF00; margin:0 9px; font-size:13px; color:#CEE5F8;}
+.divRCon .accountSetspan{ line-height:27px; display:inline-block; width:78px; font-size:13px;}
+#gotoRecharge{ padding-left:25px; margin-left:0; background:url(../../images/login/gotopic.png) no-repeat left center;}
+#gotoRecharge:hover{ background:url(../../images/login/gotopicH.png) no-repeat left center;}
+/*忘记密码*/
+.changePwdTxt{ width:311px !important; padding:10px 5px !important;}
+/*验证码*/
+#verificationCodeTxt{float:left;}
+/*验证码提示文字*/
+#strongWord{ /*float:right;*/ line-height:38px; margin-right:203px;}
+/*忘记当前密码A*/
+#forgetPwd{ color:#2884A9;}
+#forgetPwd:hover{ color:#f63;}
+
+/**--------------------------修改头像---------------------------**/
+.divRCon .imgPhoto{width:947px; height:232px; margin:0 auto; margin-left:11px; margin-top:10px; display:block;}
+.divRCon .uploadPic{ position:relative; width:120px; height:28px; border:1px solid #64A900; background-color:#64A900; color:#fff; display:inline-block; margin-top:3px; margin-left:99px; font-size:13px;}
+.divRCon .spanWord{ margin-left:11px; line-height:35px; display:inline-block; width:98.5%; padding-left:18px; background-color:#F3F3F3; color:#3f3f3f; margin-top:6px;}
+.divBorderBox{ width:98%; height:366px; position:relative; margin:20px auto 0;}
+
+/*.btnOk{ left:231px; top:0; position:absolute; margin:0;}
+.btnCancel{left:379px; top:0; position:absolute;}*/
+
+/**--------------------------积分管理---------------------------**/
+.divRCon .divTop1{ width:100%; height:30px; position:relative;}
+.divRCon .divTop1 span{ line-height:30px; font-size:14px; position:absolute; left:0;}
+.divRCon .divTop1 a{ padding:1px 6px; border:1px solid #BBBBBB; position:absolute; right:0; color:#A6A6A6; font-size:14px; background-image:url(../../images/login/btnBg.png); }
+.divRCon .divTop1 a:hover{ color:#000;}
+.divRCon .divTop2{ width:27%; height:30px; line-height:30px; margin-left:268px; font-size:14px; font-weight:normal;}
+.divRCon .divTop2 i{ margin-right:10px;}
+.divRCon .divTop3{ width:100%; height:30px; display:inline-table; position:relative; margin-top:60px;}
+.divRCon .divTop3 select{ width:110px; resize:none; padding:7px 10px 6px;}
+.divRCon .divTop3 #selectPostion{ width:135px;}
+.divRCon .divTop3 span{ margin-left:28px;}
+.divRCon .divTop3 a{ padding:6px 20px; border-radius:2px; background-image:url(../../images/login/btnBg.png); border:1px solid #BBBBBB; color:#979797; line-height:20px; margin-left:3px;}
+.divRCon .divTop3 a:hover{ color:#000;}
+
+.divRCon table{ border-collapse:collapse; width:100%; margin-top:40px; height:auto; border:1px solid #fff; table-layout:fixed;}
+.divRCon table tr{ height:40px; max-height:40px; border-bottom:1px solid #fff; border-top:1px solid #fff;}
+.divRCon table tr:nth-child(odd){ background-color:#F7F7F7;}
+.divRCon table tr:nth-child(even){ background-color:#fff;}
+.divRCon table tr:hover{ background-color:#BBBBBB;}
+.divRCon table .trBg{ background:url(../../images/login/tbthBg.png) repeat-x; height:44px !important;}
+.divRCon table th{ text-align:center; padding:12px 4px; border-right:1px solid #fff; color:#4B5053; font-weight:normal; font-size:13px;}
+.divRCon table td{ text-align:left; padding:10px 9px; white-space:nowrap; text-overflow:ellipsis; overflow:hidden;}
+.divRCon table .tdRow1{ text-align:center !important;}
+.divRCon table td .aEdit{ font-size:12px; color:#64AACA; cursor:pointer;}
+.divRCon table td .aEdit:hover{ color:#FC0;}
+
+.divRCon .divTotal{ width:100%; height:30px; line-height:30px; display:inline-table;}
+.divRCon .divTotal span{ padding:0 10px;}
+.divRCon .divTotal b{ margin-left:103px; width:130px; display:inline-block; margin-right:0; text-align:center;}
+.divRCon .divTotal .bRight{ margin-left:0px; width:104px;}
+.divRCon .divTotal .bNumber{ margin-left:0px; width:auto;}
+
+.paging{ width:100%; height:auto; display:inline-table; margin-top:60px;}
+.paging i{ padding:5px 20px; line-height:20px; border-radius:2px; border:1px solid #BBBBBB; display:inline-block; margin-left:15px; cursor:pointer; background:url(../../images/login/btnBg.png) repeat-x; color:#8B8B8B; font-size:13px;}
+.paging i:hover{ color:#000;}
+.paging .iLeft{ margin-left:258px; margin-right:20px;}
+
+
+/**--------------------------项目管理---------------------------**/
+.divRCon .divTop3 #aCheckPro{ right:8px;}
+/**--------------------------账户管理---------------------------**/
+.divRCon .divTopBtnAccount{ width:auto; height:32px; border:1px solid #DDDDDD;border-radius:3px; position:relative; margin-bottom:18px; background-color:#fff; margin-top:60px; display:inline-block;}
+.divRCon .divTopBtnAccount a{ width:139px; height:46px; line-height:39px; font-size:13px; cursor:pointer; margin-left:8px; color:#333; display:inline-table; margin-top:-4px;}
+.divRCon .divTopBtnAccount a:hover{ color:#7B0405;}
+
+.divRCon .divTop3 .inputText{ width:300px; padding:8px;}
+.divRCon #searchAccount{ margin-top:10px;}
+#tbAffiliateAccount{ margin-top:20px;}
+#tbAccountManagement{ margin-top:20px;}
+/*tab加为附属帐号*/
+.divRCon table td .aBtnAdd{ padding:7px 13px; background-color:#ccc; font-size:13px; cursor:pointer; background:url(../../images/login/btnBg.png) repeat-x; border:1px solid #BBBBBB; color:#8B8B8B; border-radius:2px;}
+.divRCon table td .aBtnAdd:hover{ color:#000;}
+/*tab帐号管理*/
+.divRCon table td .aBtnRemove{ padding:7px 13px; background-color:#ccc; font-size:13px; cursor:pointer; background:url(../../images/login/btnBg.png) repeat-x; border:1px solid #BBBBBB; color:#8B8B8B; border-radius:2px;}
+.divRCon table td .aBtnRemove:hover{ color:#000;}
+/*a开通帐号*/
+.divRCon .divTopBtnAccount #openAccount{ display:none;}
+/*tab开通帐号*/
+#tabOpenAccount{ width:100%; height:auto; display:none; padding-top:8px;}
+#btnOpenAccount{ width:100%; height:42px;margin-top:25px;}
+
+/**--------------------------其它---------------------------**/
+#basicDiv{ /*display:none;*/ height:auto; width:95%; margin:20px auto 0;}/*基本信息*/
+#photoDiv{ display:none; margin:0 auto; min-height:765px;}/*修改头像*/
+#passwordDiv{ display:none; margin-top:110px;}/*修改密码*/
+#pointDiv{ display:none; margin-top:8px;}/*积分管理*/
+#projectDiv{ display:none; margin-top:8px;}/*项目管理*/
+#accountDiv{ display:none; margin-top:8px;}/*账户管理*/
+
+#passwordDiv h6,h5{ display:none;}/*错误提示图片*/
+#passwordDiv .iPrompt{ display:none;}/*错误提示文字*/

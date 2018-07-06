@@ -1,0 +1,35 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{ margin:0; padding:0;}
+.emailBox{ margin:25px auto; width:600px; height:auto; padding-bottom:25px; border-radius:5px; background-color:#fff; border:1px solid #CDCAC7;}
+.emailBox .topNav{ height:37px; width:602px; background-color:#AB100F; border-top-left-radius:5px; border-top-right-radius:5px; text-indent:10px; margin-left:-1px; margin-top:-1px;}
+.emailBox .topNav a{ display:inline-block; color:#fff; font-size:14px; padding:0 7px; line-height:37px; cursor:pointer;}
+.emailBox .topNav a:hover{ text-decoration:underline;}
+.emailBox .logoPhone{ height:60px; width:100%;}
+.emailBox .logoPhone .logo_a{ background-image:url(../../images/emailLogo.png); width:113px; height:59px; cursor:pointer; display:inline-block; margin-left:14px;}
+.emailBox .logoPhone .phone_a{ color:#AB100F; font-size:18px; text-align:right; display:inline-block; height:59px; line-height:69px; vertical-align:top; margin-right:14px; width:228px; font-family:Verdana;}
+
+.emailBox .contentBox{ width:575px; height:auto; padding-bottom:7px; background-color:#F0F5F7; border:1px solid #DEE1E4; margin:8px auto; border-radius:1px; padding-top:4px;}
+.emailBox .contentBox .div_left{ display:inline-block; width:98%; height:auto; margin-right:0px; text-indent:13px; vertical-align:top;}
+.emailBox .contentBox .div_left p{ margin:0; line-height:35px; font-size:14px; color:#584f47;}
+.emailBox .contentBox .div_left p span{ color:#1a588e;}
+.emailBox .contentBox .div_left p a{ color:#ab100f; text-decoration:underline; cursor:pointer;}
+.emailBox .contentBox .div_left p a:hover{ text-decoration:none;}
+
+.emailBox .row_div{ width:67%; display:inline-block; height:auto; text-indent:17px;}
+.emailBox .row_div p{ color:#ab100f; line-height:25px; font-size:12px;}
+.emailBox .row_div h3{ font-weight:normal; line-height:25px; color:#9c928a; font-size:12px;}
+.emailBox .row_div span{ color:#1a588e; cursor:pointer;}
+.emailBox .row_div span:hover{ text-decoration:underline;}
+
+.emailBox .div_right{ display:inline-block; width:78px; height:auto; margin-left:8px; vertical-align:top;}
+.emailBox .div_right a{ padding:5px; display:block; width:68px; height:68px; background-color:#fff; margin-top:20px;}
+.emailBox .div_right a img{ width:68px; height:68px;}
+
+
+/*邮箱激活结果*/
+.emailResult{ width:40%; margin:0 auto;}
+.emailResult .divResult{ padding-left:42px; height:41px; position:relative;}
+.emailResult .divResult img{ position:absolute; top:1px; left:1px; width:42px; height:42px;}
+.emailResult .divResult p{ font-size:21px !important; line-height:42px !important; text-indent:40px;}
