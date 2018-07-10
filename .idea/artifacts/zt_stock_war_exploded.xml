@@ -7,8 +7,9 @@
           <element id="module-output" name="zt_stock" />
         </element>
         <element id="directory" name="lib">
-          <element id="library" level="project" name="Maven: javazoom:jlayer:1.0.1" />
           <element id="library" level="project" name="activation-1.1.1" />
+          <element id="library" level="project" name="Maven: javazoom:jlayer:1.0.1" />
+          <element id="library" level="project" name="Maven: net.sourceforge.javacsv:javacsv:2.0" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="zt_stock/web/Web" />

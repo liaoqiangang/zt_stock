@@ -74,19 +74,21 @@ public class Stock extends BaseEntity implements Comparable<Object> {
 	private double lPrice;
 
 
+	private double zClose;
+
 	private double  zdf;
 	
 	private int monitor;
 
-	private String ltgb;
 
-	public String getLtgb() {
-		return ltgb;
+	public double getzClose() {
+		return zClose;
 	}
 
-	public void setLtgb(String ltgb) {
-		this.ltgb = ltgb;
+	public void setzClose(double zClose) {
+		this.zClose = zClose;
 	}
+
 
 	public double getZdf() {
 		return zdf;

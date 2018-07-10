@@ -37,28 +37,20 @@ public class BuyStock extends BaseEntity implements Comparable<Object> {
 
     private Double zhangdiefu;
 
-    private Integer yingli;
+    private String yingli;
 
-    private String ltgb;
 
     private Double ylPortal;
 
 
-    public Integer getYingli() {
+    public String getYingli() {
         return yingli;
     }
 
-    public void setYingli(Integer yingli) {
+    public void setYingli(String yingli) {
         this.yingli = yingli;
     }
 
-    public String getLtgb() {
-        return ltgb;
-    }
-
-    public void setLtgb(String ltgb) {
-        this.ltgb = ltgb;
-    }
 
     public Double getYlPortal() {
         return ylPortal;
@@ -95,7 +87,7 @@ public class BuyStock extends BaseEntity implements Comparable<Object> {
      */
     private Integer day;
 
-    private Integer model;
+    private String model;
 
     private String remark;
 
@@ -107,11 +99,11 @@ public class BuyStock extends BaseEntity implements Comparable<Object> {
         this.remark = remark;
     }
 
-    public Integer getModel() {
+    public String getModel() {
         return model;
     }
 
-    public void setModel(Integer model) {
+    public void setModel(String model) {
         this.model = model;
     }
 

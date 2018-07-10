@@ -54,12 +54,17 @@ public class ScheduledService {
     @Autowired
     private StockService stockService;
 
+    @Autowired
+    private BuyStockService buyStockService;
+
+
     /**
      * 每20秒写一遍
      * 0/20 25/1 9-14 ? * 2-6 *  周一-周五  9点30到下午3点，每分钟执行一次
      */
-//    @Scheduled(cron = "*/10 * * * * ?")//每5秒执行一次
-    @Scheduled(cron="0/10 25/1 9-14 ? * 2-6")
+
+//    @Scheduled(cron="0/10 25/1 9-14 ? * 2-6")
+    @Scheduled(cron = "*/10 * * * * ?")//每10秒执行一次
     public void zt_open_buy() {
         // 黄金分割比率
         StockFilter filter = new StockFilter();
@@ -79,10 +84,6 @@ public class ScheduledService {
         System.out.println("==========================================end====================================================");
     }
 
-    @Autowired
-    private BuyStockService buyStockService;
-
-
     private void zt_yujing_buy(Stock stock) {
         StockType stockType = new StockType(stock.getStockCode());
         String stockCodeUrl = "http://hq.sinajs.cn/list="
@@ -90,7 +91,7 @@ public class ScheduledService {
         String resultContent = HttpClientUtil.get(stockCodeUrl, "GBK");
         resultContent = resultContent.substring(
                 resultContent.indexOf("=\"") + 2, resultContent.indexOf("\";"));
-        try{
+        try {
             String[] stockArrs = resultContent.split(",");
             if (!StringUtils.isEmpty(resultContent)) {
                 // 现价
@@ -105,39 +106,45 @@ public class ScheduledService {
                 int day = DateUtil.getweekdays(stock.getSelTime(), new Date());
 
                 //跌破  涨停开饭盘 *1.01 ()
-                Double zt_open = Double.valueOf(stock.getlPrice());
-                int dipo_openprice = Double.valueOf(nowPrice).compareTo(zt_open);
+                Double zt_open = stock.getlPrice();
                 int dipo_openprice1_01 = Double.valueOf(nowPrice).compareTo(zt_open * 1.01);
+                int dipo_openprice = Double.valueOf(nowPrice).compareTo(zt_open);
+                int dipo_zClose = Double.valueOf(nowPrice).compareTo(stock.getzClose());
 
                 //TODO  实时播报	跌破 涨停开盘价(到达开盘价附近1.01)
                 //现价小于涨停当天的开盘价 1.01
                 String msg = "";
-                if (dipo_openprice < 0 ) {
-                    Toolkit.getDefaultToolkit().beep();
-                    msg = "\n---->《《《盘中抄底》》》	跌到 涨停开盘价：" + stock.getlPrice() + "附近，关注买入！		回调（" + (day - 1) + "）天		股票：" + stock.getStockName() + "（" + stock.getStockCode() + "）	现价：" + nowPricestr + "<----\n";
-                    System.out.println(msg);
-                    AppendFile.method1("/Users/liaoqiangang/Desktop/stock.txt", msg);
-
-                    int model = 1;
-                    if (dipo_openprice < 0) {
-                        model = -1;
-                    }
-                    //TODO 跌破开盘价 入库
-                    //组装入库数据
-                    BuyStock buyStock = new BuyStock();
-                    buyStock.setStockName(stock.getStockName());
-                    buyStock.setStockCode(stock.getStockCode());
-                    buyStock.setDay(day - 1);
-                    buyStock.setModel(model);
-                    buyStock.setNowPrice(nowPrice);
-                    String createTime = (stockArrs[30] + stockArrs[31]).replace("-", "").replace(":", "");
-                    buyStock.setCreateTime(createTime);
-                    BuyStockFilter filter = new BuyStockFilter();
-                    filter.setModel(model);
-                    filter.setStockCode(stock.getStockCode());
-                    int count = buyStockService.countByFilter(filter);
-                    if (count == 0) {
-                        buyStockService.insertBySelective(buyStock);
+                if(day<=3){
+                    if (dipo_openprice < 0 || dipo_openprice1_01 < 0 || dipo_zClose < 0) {
+                        msg = "\n---->《《《盘中抄底》》》	跌到 涨停开盘价：" + stock.getlPrice() + "附近，关注买入！		回调（" + (day - 1) + "）天		股票：" + stock.getStockName() + "（" + stock.getStockCode() + "）	现价：" + nowPricestr + "<----\n";
+                        System.out.println(msg);
+                        AppendFile.method1("/Users/liaoqiangang/Desktop/stock.txt", msg);
+                        String model = "";
+                        if(dipo_zClose<0){
+                            model = "加仓";  //加仓点位
+                        }else if(dipo_openprice<0){
+                            model = "买入";  //买点
+                        }else{
+                            model = "关注";  //关注点
+                        }
+                        //TODO 跌破开盘价 入库
+                        //组装入库数据
+                        BuyStock buyStock = new BuyStock();
+                        buyStock.setStockName(stock.getStockName());
+                        buyStock.setStockCode(stock.getStockCode());
+                        buyStock.setDay(day - 1);
+                        buyStock.setModel(model);
+                        buyStock.setNowPrice(nowPrice);
+                        String createTime = (stockArrs[30] + stockArrs[31]).replace("-", "").replace(":", "");
+                        buyStock.setCreateTime(createTime);
+                        BuyStockFilter filter = new BuyStockFilter();
+                        filter.setModel(model);
+                        filter.setStockCode(stock.getStockCode());
+                        int count = buyStockService.countByFilter(filter);
+                        if (count == 0) {
+                            buyStockService.insertBySelective(buyStock);
+                            Toolkit.getDefaultToolkit().beep();
+                        }
                     }
                 }
 
@@ -145,7 +152,7 @@ public class ScheduledService {
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmm");
                 String dateStr = sdf.format(new Date());
                 int HHmm = Integer.valueOf(dateStr.substring(8, dateStr.length()));
-//		if(1445<HHmm&&HHmm<1500){//14:45~15:00  播报
+        //		if(1445<HHmm&&HHmm<1500){//14:45~15:00  播报
                 int dipo = Double.valueOf(zt_open).compareTo(lowPrice);//跌破开盘价
                 int shouhui = Double.valueOf(nowPrice).compareTo(stock.getlPrice());//现价 大于开盘价  ++++++现阶段收盘价++++++
                 if (dipo >= 0 && shouhui >= 0) {
@@ -154,8 +161,8 @@ public class ScheduledService {
                     AppendFile.method1("/Users/liaoqiangang/Desktop/stock.txt", msg);
                 }
             }
-        }catch (Exception e){
-            log.info("###Error###："+resultContent);
+        } catch (Exception e) {
+            log.info("###Error###：" + resultContent);
         }
     }
 

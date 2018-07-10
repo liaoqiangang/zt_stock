@@ -1,15 +1,13 @@
 package com.niuniu.ym.web;
 
-import com.alibaba.fastjson.JSON;
 import com.niuniu.ym.common.controller.BaseController;
 import com.niuniu.ym.entity.Stock;
 import com.niuniu.ym.enums.StockType;
 import com.niuniu.ym.filter.StockFilter;
 import com.niuniu.ym.service.StockService;
+import com.niuniu.ym.util.CsvUtil;
 import com.niuniu.ym.util.DateUtil;
 import com.niuniu.ym.util.HttpClientUtil;
-import com.niuniu.ym.util.ReadExcelUtils;
-import net.sf.json.JSONObject;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -373,30 +371,30 @@ public class StockController extends BaseController {
         try {
             Map<String, String> map = new HashMap<String, String>();
             /*	获取excel文件内容*/
-            String[][] data = ReadExcelUtils.getData(multipartFile.getInputStream(), 0, 1);
+//            String[][] data = ReadExcelUtils.getData(multipartFile.getInputStream(), 0, 1);
+            String[][] data = CsvUtil.getCsvData(multipartFile.getInputStream(), 1);
 			/*	获取文件日期*/
-            String date = "2018" + multipartFile.getOriginalFilename().split("-")[1].replace(".xls", "");
+            String date = "2018" + multipartFile.getOriginalFilename().split("-")[1].replace(".csv", "");
             if (data != null) {
 				/*迁移昨天数据*/
-                //stockService.transferAllData();
+//                stockService.transferAllData();
                 for (String[] rows : data) {
                     try {
-                        String[] stockdata = rows[0].split(",");
-                        String stockName = stockdata[1];
-                        String stockCode = stockdata[2];
-                        String lPrice = stockdata[15];//open price
-                        String hPrice = stockdata[3];//收盘价
+                        String stockName = rows[1];
+                        String stockCode = rows[2];
+                        String lPrice = rows[15];//open price
+                        String z_close = rows[16];//取涨停昨天的收盘价
+                        String hPrice = rows[3];//收盘价
+                        String ltgb = rows[3];//收盘价
 						/*去除一字板股票	3-最新价==13-最高价   13-最高==14-最低*/
-                        if (stockdata[3].equals(stockdata[13]) && stockdata[13].equals(stockdata[14])) {
+                        if (rows[3].equals(rows[13]) && rows[13].equals(rows[14])) {
                             continue;
                         }
 						/*五日涨跌幅  大于30%的 去除*/
-                        String five_day_zhangdiefu = stockdata[7].replace("%", "");
+                        String five_day_zhangdiefu = rows[7].replace("%", "");
                         if (Double.valueOf(five_day_zhangdiefu) > 30) {
                             continue;
                         }
-//						String stockName = rows[1];
-//						String stockCode = rows[2];
                         stockCode = stockCode.replace(".0", "");
                         int sCode = Integer.valueOf(stockCode);
                         if (sCode < 10000) {
@@ -415,7 +413,7 @@ public class StockController extends BaseController {
                         System.out.println("	名称：" + stockName + "	代码：" + stockCode + "	收盘价：" + hPrice + "	开盘：" + lPrice);
                         Stock stock = new Stock();
 
-
+                        stock.setzClose(Double.valueOf(z_close));
                         stock.setStockName(stockName);
                         stock.setStockCode(stockCode);
                         stock.sethPrice(Double.valueOf(hPrice));

@@ -72,18 +72,20 @@ public class StockFilter extends PageFilter {
      */
     private double lPrice;
 
+    private double zClose;
+
 
     private int monitor;
 
-    private String ltgb;
 
-    public String getLtgb() {
-        return ltgb;
+    public double getzClose() {
+        return zClose;
     }
 
-    public void setLtgb(String ltgb) {
-        this.ltgb = ltgb;
+    public void setzClose(double zClose) {
+        this.zClose = zClose;
     }
+
 
     public int getStrongstock() {
         return strongstock;

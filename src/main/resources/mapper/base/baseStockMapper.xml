@@ -14,7 +14,7 @@
         <result property="orderNum" column="order_num"/>
         <result property="plate" column="plate"/>
         <result property="fileUrl" column="fileUrl"/>
-        <result property="ltgb" column="ltgb"/>
+        <result property="zClose" column="z_close"/>
         <result property="hPrice" column="h_price"/>
         <result property="lPrice" column="l_price"/>
         <result property="monitor" column="monitor"/>
@@ -41,9 +41,6 @@
             </if>
             <if test="fileUrl != null and fileUrl != ''">
                 and fileUrl=#{fileUrl}
-            </if>
-            <if test="ltgb != null and ltgb != ''">
-                and ltgb=#{ltgb}
             </if>
             <if test="season != null and season != ''">
                 and season like CONCAT(CONCAT('%', #{season}), '%')
@@ -82,8 +79,8 @@
             <if test="fileUrl != null and fileUrl!=''">
                 and fileUrl=#{fileUrl}
             </if>
-            <if test="ltgb != null and ltgb!=''">
-                and ltgb=#{ltgb}
+            <if test="zClose != null ">
+                and z_close=#{zClose}
             </if>
             <if test="selTime != null">
                 and sel_time=#{selTime}
@@ -115,7 +112,7 @@
 	      type,
 	      plate,
 	      fileUrl,
-	      ltgb,
+	      z_close,
 	      sel_time,
 	      buy,
 	      season,
@@ -131,7 +128,7 @@
 	      #{type},
 	      #{plate},
 	      #{fileUrl},
-	      #{ltgb},
+	      #{zClose},
 	      #{selTime},
 	      #{buy},
 	      #{season},
@@ -146,7 +143,7 @@
 			type,
 			plate,
 			fileUrl,
-			ltgb,
+			z_close,
 			sel_time,
 			buy,
 			season,
@@ -161,7 +158,7 @@
 	      #{type},
 	      #{plate},
 	      #{fileUrl},
-	      #{ltgb},
+	      #{zClose},
 	      #{selTime},
 	      #{buy},
 	      #{season},
@@ -239,8 +236,8 @@
             <if test="fileUrl != null and fileUrl!=''">
                 fileUrl,
             </if>
-            <if test="ltgb != null and ltgb!=''">
-                ltgb,
+            <if test="zClose != null ">
+                z_close,
             </if>
             <if test="selTime != null">
                 sel_time,
@@ -284,8 +281,8 @@
             <if test="fileUrl != null and fileUrl != ''">
                 #{fileUrl},
             </if>
-            <if test="ltgb != null and ltgb != ''">
-                #{ltgb},
+            <if test="zClose != null and zClose != ''">
+                #{zClose},
             </if>
             <if test="selTime != null">
                 #{selTime},
@@ -337,8 +334,8 @@
             <if test="fileUrl != null and fileUrl !=''">
                 fileUrl=#{fileUrl},
             </if>
-            <if test="ltgb != null and ltgb !=''">
-                ltgb=#{ltgb},
+            <if test="zClose != null and zClose !=''">
+                z_close=#{zClose},
             </if>
             <if test="selTime != null">
                 sel_time=#{selTime},
@@ -368,7 +365,7 @@
         type=#{type},
         plate=#{plate},
         fileUrl=#{fileUrl},
-        ltgb=#{ltgb},
+        z_close=#{zClose},
         sel_time=#{selTime},
         buy=#{buy},
         season=#{season},

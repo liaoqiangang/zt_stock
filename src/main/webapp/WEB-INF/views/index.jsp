@@ -117,7 +117,7 @@ function clickgp(){
 						<ul class="tree treeFolder">
 							<li><a href="<%=basePath%>stock/list" target="navTab" rel="listSysMenu" id="gupiao">涨停股</a></li>
 
-							<li><a href="<%=basePath%>maintain/buyStock/list?model=-1" target="navTab" rel="listSysMenu" id="buy">关注买入</a></li>
+							<li><a href="<%=basePath%>maintain/buyStock/list" target="navTab" rel="listSysMenu" id="buy">关注买入</a></li>
 							<%--<li><a href="<%=basePath%>stock/list?zjby=1" target="navTab" rel="listSysMenu" id="gupiao">持仓</a></li>--%>
 
 							<%-- <li><a href="<%=basePath%>stock/list?type=2&selType=1" target="navTab" rel="listSysMenu">圈子</a></li>

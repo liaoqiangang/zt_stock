@@ -96,10 +96,11 @@ function refreshListPage(){
 				<th>涨跌幅</th>
 				<th>现价</th>
 				<th>股票</th>
-				<th>黄金分割价位</th>
+				<th>备注</th>
+				<th>买入价/加仓价</th>
 				<th>板块</th>
 				<th>入选时间</th>
-<!-- 				<th>操作</th> -->
+				<th>操作</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -131,6 +132,7 @@ function refreshListPage(){
 							<td style="color:red" id="reason_${status.count}">
 								${item.season }
 							</td>
+							<td>${item.lPrice}/${item.zClose}</td>
 							<td style="color:red"><c:out value="${item.plate}"/></td>
 							<td style="color:red"><fmt:formatDate value="${item.selTime }" pattern="yyyy-MM-dd"/></td>
 						</c:when>
@@ -139,13 +141,16 @@ function refreshListPage(){
 							<td id="reason_${status.count}">
 								${item.season }
 							</td>
+							<td>${item.lPrice}/${item.zClose}</td>
 							<td><c:out value="${item.plate}"/></td>
 							<td><fmt:formatDate value="${item.selTime }" pattern="yyyy-MM-dd"/></td>
 						</c:otherwise>
 					</c:choose>
-<!-- 					<td> -->
-<%-- 						<a class="btn" href="<%=basePath%>fetch/fetch/${item.stockCode}" target="ajaxTodo" title="确定抓取嘛？">抓取机构投资者</a> --%>
-<!-- 					</td> -->
+						<td>
+								<c:if test="${item.buy<item.lPrice}">
+									买入
+								</c:if>
+						</td>
 				</tr>
 			</c:forEach>
 		</tbody>

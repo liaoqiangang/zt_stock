@@ -5,6 +5,18 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
+<script type="text/javascript">
+	function resetSubmit() {
+	    $("#model").val("");
+	    $("#day").val("");
+	    $("#input[name='createTime']").val("");
+        var form = $("#pagerForm");
+        console.log(form);
+        navTabSearch(form);
+    }
+
+
+</script>
 <div class="pageHeader">
 	<form id="pagerForm" onsubmit="return navTabSearch(this);" action="<%=basePath%>maintain/buyStock/list" method="post">
 		<input type="hidden" name="pageNum" value="${filter.pageNum}" />
@@ -16,8 +28,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<label>类型：</label>
 					<select name="model" class="combox required" id="model">
 						<option value="">全部</option>
-						<option value="1" <c:if test="${filter.model==1}">selected="selected"</c:if>>关注</option>
-						<option value="-1" <c:if test="${filter.model==-1}">selected="selected"</c:if>>买入</option>
+						<option value="关注" <c:if test="${filter.model eq '关注'}">selected="selected"</c:if>>关注</option>
+						<option value="买入" <c:if test="${filter.model eq '买入'}">selected="selected"</c:if>>买入</option>
+						<option value="加仓" <c:if test="${filter.model eq '加仓'}">selected="selected"</c:if>>加仓</option>
 					</select>
 				</td>
 
@@ -27,12 +40,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</td>
 				<td>
 					<label>回调天数：</label>
-					<input type="text" name="day" value="${filter.day}" />
+					<select name="day" class="combox required" id="day">
+						<option value="">全部</option>
+						<option value="1" <c:if test="${filter.day==1}">selected="selected"</c:if>>1天</option>
+						<option value="2" <c:if test="${filter.day==2}">selected="selected"</c:if>>2天</option>
+						<option value="3" <c:if test="${filter.day==3}">selected="selected"</c:if>>3天</option>
+						<option value="4" <c:if test="${filter.day==4}">selected="selected"</c:if>>4天</option>
+					</select>
 				</td>
 			</tr>
 		</table>
 		<div class="subBar">
 			<ul>
+				<li><div class="buttonActive"><div class="buttonContent"><button onclick="resetSubmit()">重置</button></div></div></li>
 				<li><div class="buttonActive"><div class="buttonContent"><button type="submit">检索</button></div></div></li>
 			</ul>
 		</div>
@@ -75,7 +95,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<td><c:out value="${item.stockName}" /></td>
 
 						<td>
-							<a href="/stock/list?stockCode=${item.stockCode}" target="navTab" rel="listSysMenu" >
+							<a href="/stock/list?stockCode=${item.stockCode}" target="dialog" width="888" height="518" rel="listSysMenu" >
 								<c:out value="${item.stockCode}" />
 							</a>
 
@@ -86,12 +106,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<td><c:out value="${item.nowPrice}" /></td>
 						<td><c:out value="${item.zhangdiefu}%" /></td>
 						<td>
-							<c:if test="${item.model==1}">
-								关注
-							</c:if>
-							<c:if test="${item.model==-1}">
-								买入
-							</c:if>
+							${item.model}
 						</td>
 						<td><c:out value="${item.remark}" /></td>
 						<td><c:out value="${item.day}" /></td>
@@ -108,7 +123,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<td><c:out value="${item.ylPortal}%" /></td>
 						<td><c:out value="${item.stockName}" /></td>
 						<td>
-							<a href="/stock/list?stockCode=${item.stockCode}" target="navTab" rel="listSysMenu" >
+							<a href="/stock/list?stockCode=${item.stockCode}" target="dialog"  width="888" height="518" rel="listSysMenu" >
 								<c:out value="${item.stockCode}" />
 							</a>
 						</td>
@@ -117,12 +132,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<td><c:out value="${item.nowPrice}" /></td>
 						<td><c:out value="${item.zhangdiefu}%" /></td>
 						<td>
-							<c:if test="${item.model==1}">
-								关注
-							</c:if>
-							<c:if test="${item.model==-1}">
-								买入
-							</c:if>
+							${item.model}
 						</td>
 						<td><c:out value="${item.remark}" /></td>
 						<td><c:out value="${item.day}" /></td>

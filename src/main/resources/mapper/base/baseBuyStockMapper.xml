@@ -10,7 +10,6 @@
         <result property="createTime" column="create_time"/>
         <result property="nowPrice" column="now_price"/>
         <result property="model" column="model"/>
-        <result property="ltgb" column="ltgb"/>
         <result property="yingli" column="yingli"/>
         <result property="day" column="day"/>
     </resultMap>
@@ -34,13 +33,10 @@
             <if test="nowPrice != 0">
                 and now_price=#{nowPrice}
             </if>
-            <if test="model != null and model != 0">
+            <if test="model != null and model != ''">
                 and model=#{model}
             </if>
-            <if test="ltgb != null and ltgb != ''">
-                and ltgb=#{ltgb}
-            </if>
-            <if test="yingli != null and yingli != 0">
+            <if test="yingli != null and yingli!= ''">
                 and yingli=#{yingli}
             </if>
             <if test="day != null and day != 0">
@@ -68,9 +64,6 @@
             <if test="model != null">
                 and model=#{model}
             </if>
-            <if test="ltgb != null">
-                and ltgb=#{ltgb}
-            </if>
             <if test="yingli != null">
                 and yingli=#{yingli}
             </if>
@@ -86,7 +79,6 @@
 	      create_time,
 	      now_price,
 	      model,
-	      ltgb,
 	      yingli,
 	      day
 	</sql>
@@ -97,7 +89,6 @@
 	      #{createTime},
 	      #{nowPrice},
 	      #{model},
-	      #{ltgb},
 	      #{yingli},
 	      #{day}
 	  </sql>
@@ -107,7 +98,6 @@
 			create_time,
 			now_price,
 			model,
-			ltgb,
 			yingli,
 			day
 	</sql>
@@ -117,7 +107,6 @@
 	      #{createTime},
 	      #{nowPrice},
 	      #{model},
-	      #{ltgb},
 	      #{yingli},
 	      #{day}
 	  </sql>
@@ -190,9 +179,6 @@
             <if test="model != null">
                 model,
             </if>
-            <if test="ltgb != null">
-                ltgb,
-            </if>
             <if test="yingli != null">
                 yingli,
             </if>
@@ -219,9 +205,6 @@
             </if>
             <if test="model != null">
                 #{model},
-            </if>
-            <if test="ltgb != null">
-                #{ltgb},
             </if>
             <if test="yingli != null">
                 #{yingli},
@@ -258,9 +241,6 @@
             <if test="model != null">
                 model=#{model},
             </if>
-            <if test="ltgb != null">
-                ltgb=#{ltgb},
-            </if>
             <if test="yingli != null">
                 yingli=#{yingli},
             </if>
@@ -280,7 +260,6 @@
         create_time=#{createTime},
         now_price=#{nowPrice},
         model=#{model},
-        ltgb=#{ltgb},
         yingli=#{yingli},
         day=#{day}
         where id=#{id}

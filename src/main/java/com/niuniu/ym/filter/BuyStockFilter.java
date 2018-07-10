@@ -32,33 +32,25 @@ public class BuyStockFilter extends PageFilter {
 	*/
 	private Integer day;
 
-	private Integer model;
+	private String model;
 
-	private Integer yingli;
+	private String yingli;
 
-	private String ltgb;
 
-    public Integer getYingli() {
+    public String getYingli() {
         return yingli;
     }
 
-    public void setYingli(Integer yingli) {
+    public void setYingli(String yingli) {
         this.yingli = yingli;
     }
 
-    public String getLtgb() {
-        return ltgb;
-    }
 
-    public void setLtgb(String ltgb) {
-        this.ltgb = ltgb;
-    }
-
-    public Integer getModel() {
+    public String getModel() {
         return model;
     }
 
-    public void setModel(Integer model) {
+    public void setModel(String model) {
         this.model = model;
     }
 

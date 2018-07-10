@@ -48,7 +48,6 @@ public class StockServiceImpl extends BaseServiceImpl<Stock> implements StockSer
 			getDao().insert_stock_bak(stock);
 		}
 		getDao().delete_stock();
-
 		/*迁移回调	触发关注买入的股票*/
 		BuyStockFilter buyStockFilter = new BuyStockFilter();
 		int total1 = buyStockDao.countByFilter(buyStockFilter);
@@ -57,6 +56,6 @@ public class StockServiceImpl extends BaseServiceImpl<Stock> implements StockSer
 		for (BuyStock stock:list1){
 			buyStockDao.insert_stock_bak(stock);
 		}
-//		buyStockDao.delete_stock();
+		buyStockDao.delete_stock();
 	}
 }
