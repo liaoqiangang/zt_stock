@@ -66,18 +66,6 @@ public class StockController extends BaseController {
      */
     @RequestMapping("/list")
     public String list(ModelMap modelMap, StockFilter filter, HttpServletRequest request) {
-        // 0-优股籍；1-短线宝；2-圈子；
-        String type = filter.getType();
-        modelMap.put("addType", type);
-        if (StringUtils.isNotEmpty(type)) {
-            if (type.equals("0")) {
-                filter.setType("优股籍");
-            } else if (type.equals("1")) {
-                filter.setType("短线宝");
-            } else if (type.equals("2")) {
-                filter.setType("圈子");
-            }
-        }
         filter.setMonitor(1);
         String selType = request.getParameter("selType");
         if (StringUtils.isNotEmpty(selType)) {
@@ -93,11 +81,11 @@ public class StockController extends BaseController {
                 filter.setEndTime(DateUtil.getEndTimeOfDate(day));
             }
         }
-        filter.setNumPerPage(50);
+//        filter.setNumPerPage(50);
         filter.setOrderField("order_num");
         filter.setOrderDirection("desc");
         int totalRows = stockService.countByFilter(filter);
-        filter.setNumPerPage(totalRows);
+//        filter.setNumPerPage(totalRows);
         List<Stock> stockList = stockService.searchByFilter(filter);
         filter.setTotalRows(totalRows);
 
@@ -380,19 +368,23 @@ public class StockController extends BaseController {
 //                stockService.transferAllData();
                 for (String[] rows : data) {
                     try {
-                        String stockName = rows[1];
-                        String stockCode = rows[2];
-                        String lPrice = rows[15];//open price
-                        String z_close = rows[16];//取涨停昨天的收盘价
-                        String hPrice = rows[3];//收盘价
-                        String ltgb = rows[3];//收盘价
-						/*去除一字板股票	3-最新价==13-最高价   13-最高==14-最低*/
-                        if (rows[3].equals(rows[13]) && rows[13].equals(rows[14])) {
+                        String stockName = rows[1];//股票名称
+                        String stockCode = rows[2];//股票代码
+                        String lPrice = rows[15];//开盘价
+                        String z_close = rows[16];//涨停前一天的收盘价
+                        String hPrice = rows[3];//现价
+						/*去除一字板  */
+                        if (rows[3].equals(rows[15])) {//收盘价==开盘价
                             continue;
                         }
+                        /*去除开盘一字板*/
+                        if(rows[13].equals(rows[15])){//开盘价==最高价
+                            continue;
+                        }
+
 						/*五日涨跌幅  大于30%的 去除*/
                         String five_day_zhangdiefu = rows[7].replace("%", "");
-                        if (Double.valueOf(five_day_zhangdiefu) > 30) {
+                        if (Double.valueOf(five_day_zhangdiefu) > 30) {//五日涨跌幅
                             continue;
                         }
                         stockCode = stockCode.replace(".0", "");
@@ -410,20 +402,19 @@ public class StockController extends BaseController {
                         }
 
 
-                        System.out.println("	名称：" + stockName + "	代码：" + stockCode + "	收盘价：" + hPrice + "	开盘：" + lPrice);
+                        System.out.println("名称：" + stockName + "\t代码：" + stockCode + "\t收盘价：" + hPrice + "\t开盘：" + lPrice);
                         Stock stock = new Stock();
-
-                        stock.setzClose(Double.valueOf(z_close));
-                        stock.setStockName(stockName);
+                        stock.setzClose(Double.valueOf(z_close));//涨停前一天收盘价
+                        stock.setStockName(stockName);//股票名称
                         stock.setStockCode(stockCode);
-                        stock.sethPrice(Double.valueOf(hPrice));
-                        stock.setlPrice(Double.valueOf(lPrice));
+                        stock.sethPrice(Double.valueOf(hPrice));//涨停价
+                        stock.setlPrice(Double.valueOf(lPrice));//开盘价
                         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
-                        stock.setSelTime(sdf.parse(date));
-                        stock.setMonitor(1);
+                        stock.setSelTime(sdf.parse(date));//入选日期
+                        stock.setMonitor(1);//监控
                         stock.setOrderNum(0);//持股
                         StockType st = new StockType(stockCode);
-                        stock.setPlate(st.getPlateName());
+                        stock.setPlate(st.getPlateName());//板块
                         stockService.insertBySelective(stock);
                     } catch (Exception e) {
                         e.printStackTrace();

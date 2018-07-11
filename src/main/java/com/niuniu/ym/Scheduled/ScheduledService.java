@@ -66,7 +66,7 @@ public class ScheduledService {
 
 
 //    @Scheduled(cron = "*/10 * * * * ?")//每10秒执行一次
-    @Scheduled(cron="0/10 26/1 9-14 ? * 2-6")
+    @Scheduled(cron="0/10 25/1 9-14 ? * 2-6")
     public void zt_open_buy() {
         // 黄金分割比率
         StockFilter filter = new StockFilter();
@@ -96,30 +96,27 @@ public class ScheduledService {
         try {
             String[] stockArrs = resultContent.split(",");
             if (!StringUtils.isEmpty(resultContent)) {
-                // 现价
+                /*现价*/
                 String nowPricestr = stockArrs[3];
                 double nowPrice = Double.parseDouble(new DecimalFormat("#.###").format(Double.valueOf(nowPricestr)));
-
-                // 最低价
-                String lowPricestr = stockArrs[5];
+                /*最低价*/
+                String lowPricestr = stockArrs[5];// 最低价
                 double lowPrice = Double.parseDouble(new DecimalFormat("#.###").format(Double.valueOf(lowPricestr)));
-
-                //回调天数
+                /*回调天数*/
                 int day = DateUtil.getweekdays(stock.getSelTime(), new Date());
-
-                //跌破  涨停开饭盘 *1.01 ()
+                /*涨停开盘价*/
                 Double zt_open = stock.getlPrice();
+                /*跌破 涨停 开盘价 1.01-->关注点*/
                 int dipo_openprice1_01 = Double.valueOf(nowPrice).compareTo(zt_open * 1.01);
+                /*跌破 涨停 开盘价 -->买入点*/
                 int dipo_openprice = Double.valueOf(nowPrice).compareTo(zt_open);
+                /*跌破 涨停 前一天 收盘价-->加仓点*/
                 int dipo_zClose = Double.valueOf(nowPrice).compareTo(stock.getzClose());
-
-                //TODO  实时播报	跌破 涨停开盘价(到达开盘价附近1.01)
-                //现价小于涨停当天的开盘价 1.01
+                /*回调3天以内*/
                 String msg = "";
                 if(day<=3){
                     if (dipo_openprice < 0 || dipo_openprice1_01 < 0 || dipo_zClose < 0) {
-                        msg = "\n---->《《《盘中抄底》》》	跌到 涨停开盘价：" + stock.getlPrice() + "附近，关注买入！		回调（" + (day - 1) + "）天		股票：" + stock.getStockName() + "（" + stock.getStockCode() + "）	现价：" + nowPricestr + "<----\n";
-                        System.out.println(msg);
+                        /*入选类型 关注-->买入-->加仓 */
                         String model = "";
                         if(dipo_zClose<0){
                             model = "加仓";  //加仓点位
@@ -128,46 +125,69 @@ public class ScheduledService {
                         }else{
                             model = "关注";  //关注点
                         }
-                        //TODO 跌破开盘价 入库
-                        //组装入库数据
                         BuyStock buyStock = new BuyStock();
-                        buyStock.setStockName(stock.getStockName());
-                        buyStock.setStockCode(stock.getStockCode());
-                        buyStock.setDay(day - 1);
-                        buyStock.setModel(model);
-                        buyStock.setNowPrice(nowPrice);
+                        buyStock.setStockName(stock.getStockName());//股票名称
+                        buyStock.setStockCode(stock.getStockCode());//股票代码
+                        buyStock.setDay(day - 1);//回调天数
+                        buyStock.setModel(model);//入选类别
+                        buyStock.setNowPrice(nowPrice);//预警价格
                         String createTime = (stockArrs[30] + stockArrs[31]).replace("-", "").replace(":", "");
-                        buyStock.setCreateTime(createTime);
+                        buyStock.setCreateTime(createTime);//预警时间
                         BuyStockFilter filter = new BuyStockFilter();
                         filter.setModel(model);
                         filter.setStockCode(stock.getStockCode());
                         int count = buyStockService.countByFilter(filter);
+                        /*去重处理 数据库中已有数据  不做入库操作*/
                         if (count == 0) {
+                            msg = "\n---->《《《盘中抄底》》》	跌到 涨停开盘价：" + stock.getlPrice() + "附近，关注买入！		回调（" + (day - 1) + "）天		股票：" + stock.getStockName() + "（" + stock.getStockCode() + "）	现价：" + nowPricestr + "<----\n";
+                            System.out.println(msg);
                             buyStockService.insertBySelective(buyStock);
                             Toolkit.getDefaultToolkit().beep();
-                            //TODO 发送邮件 实现短信提醒
                             String title = stock.getStockName()+"("+stock.getStockCode()+")：" +model+",现价："+nowPrice;
-                            SendEmailUtil.sendEmail(title,msg);
+                            /* 买入邮件  短信预警处理*/
+                            if(model.equals("买入")||model.equals("加仓")){
+                               sendEmail(title,msg);
+                            }
                         }
                     }
                 }
 
-                //TODO 尾盘买入法  当天跌破开盘价，现价收在开盘价上方
+                /*尾盘提醒*/
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmm");
                 String dateStr = sdf.format(new Date());
                 int HHmm = Integer.valueOf(dateStr.substring(8, dateStr.length()));
-        //		if(1445<HHmm&&HHmm<1500){//14:45~15:00  播报
-                int dipo = Double.valueOf(zt_open).compareTo(lowPrice);//跌破开盘价
-                int shouhui = Double.valueOf(nowPrice).compareTo(stock.getlPrice());//现价 大于开盘价  ++++++现阶段收盘价++++++
-                if (dipo >= 0 && shouhui >= 0) {
-                    msg = "\n---->《尾盘关注》	跌破、拉回，关注买入！		回调（" + (day - 1) + "）天	股票：" + stock.getStockName() + "（" + stock.getStockCode() + "）	现价：" + nowPrice + "	涨停开盘价：" + stock.getlPrice() + "<----\n";
-                    System.out.println(msg);
-//                    AppendFile.method1("/Users/liaoqiangang/Desktop/stock.txt", msg);
-                }
+        		if(1445<HHmm&&HHmm<1500){//14:45~15:00  播报
+                    /*int dipo = Double.valueOf(zt_open).compareTo(lowPrice);//跌破开盘价
+                    int shouhui = Double.valueOf(nowPrice).compareTo(stock.getlPrice());//现价 大于开盘价  ++++++现阶段收盘价++++++
+                    if (dipo >= 0 && shouhui >= 0) {
+                        msg = "\n---->《尾盘关注》	跌破、拉回，关注买入！		回调（" + (day - 1) + "）天	股票：" + stock.getStockName() + "（" + stock.getStockCode() + "）	现价：" + nowPrice + "	涨停开盘价：" + stock.getlPrice() + "<----\n";
+                        System.out.println(msg);
+    //                    AppendFile.method1("/Users/liaoqiangang/Desktop/stock.txt", msg);
+                    }*/
+                    /*处于涨停开盘价下方股票，尾盘提醒，长下影线说明止跌，第二日杀入获利*/
+                    if(dipo_openprice<0){
+                        msg = "\n---->《尾盘关注》	跌破涨停开盘价，关注长下影线股票，第二日关注买入！		回调（" + (day - 1) + "）天	股票：" + stock.getStockName() + "（" + stock.getStockCode() + "）	现价：" + nowPrice + "	涨停开盘价：" + stock.getlPrice() + "<----\n";
+                        System.out.println(msg);
+                        AppendFile.method1("/Users/liaoqiangang/Desktop/stock.txt", msg);
+                    }
+        		}
             }
         } catch (Exception e) {
             log.info("###Error###：" + resultContent);
         }
+    }
+
+    //异步发送邮件
+    private void sendEmail(final String title, final String msg) {
+        new Thread(new Runnable() {
+            public void run() {
+                try {
+                    SendEmailUtil.sendEmail(title,msg);
+                } catch (Exception ex) {
+                    log.error("###Error###--->title："+title+"\tmsg："+msg);
+                }
+            }
+        }).start();
     }
 
 

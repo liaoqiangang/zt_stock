@@ -42,6 +42,16 @@ public class BuyStock extends BaseEntity implements Comparable<Object> {
 
     private Double ylPortal;
 
+    private String fenshi;
+
+
+    public String getFenshi() {
+        return fenshi;
+    }
+
+    public void setFenshi(String fenshi) {
+        this.fenshi = fenshi;
+    }
 
     public String getYingli() {
         return yingli;

@@ -95,7 +95,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<td><c:out value="${item.stockName}" /></td>
 
 						<td>
-							<a href="/stock/list?stockCode=${item.stockCode}" target="dialog" width="888" height="518" rel="listSysMenu" >
+
+							<a href="http://image.sinajs.cn/newchart/min/n/${item.fenshi}.gif" target="dialog" width="888" height="518" rel="listSysMenu" >
 								<c:out value="${item.stockCode}" />
 							</a>
 
@@ -123,7 +124,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<td><c:out value="${item.ylPortal}%" /></td>
 						<td><c:out value="${item.stockName}" /></td>
 						<td>
-							<a href="/stock/list?stockCode=${item.stockCode}" target="dialog"  width="888" height="518" rel="listSysMenu" >
+							<a href="http://image.sinajs.cn/newchart/min/n/${item.fenshi}.gif" target="dialog" width="888" height="518" rel="listSysMenu" >
 								<c:out value="${item.stockCode}" />
 							</a>
 						</td>

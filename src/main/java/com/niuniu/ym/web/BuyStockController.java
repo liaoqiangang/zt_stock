@@ -46,14 +46,12 @@ public class BuyStockController extends BaseController {
         List<BuyStock> buyStockList = buyStockService.searchByFilter(filter);
         List<BuyStock> buy = new ArrayList<BuyStock>();
         for (BuyStock stock : buyStockList) {
+            StockType stockType = new StockType(stock.getStockCode());
+            String stockCodeUrl = "http://hq.sinajs.cn/list="
+                    + stockType.getStockType() + stockType.getStockCode();
+            String resultContent = HttpClientUtil.get(stockCodeUrl, "GBK");
             try {
-                StockType stockType = new StockType(stock.getStockCode());
-                String stockCodeUrl = "http://hq.sinajs.cn/list="
-                        + stockType.getStockType() + stockType.getStockCode();
-                String resultContent = HttpClientUtil.get(stockCodeUrl, "GBK");
                 if (!StringUtils.isEmpty(resultContent)) {
-
-
                     resultContent = resultContent.substring(
                             resultContent.indexOf("=\"") + 2, resultContent.indexOf("\";"));
                     String[] stockArrs = resultContent.split(",");
@@ -95,10 +93,11 @@ public class BuyStockController extends BaseController {
                     String createTime = shijian.format(date);
                     stock.setCreateTime(createTime);
                     stock.setRiqi(riqi.format(date));
+                    stock.setFenshi(stockType.getStockType() + stockType.getStockCode());
                     buy.add(stock);
                 }
             } catch (Exception e) {
-                e.printStackTrace();
+                logger.info("####error####："+resultContent);
             }
         }
 //		Collections.sort(buyStockList);

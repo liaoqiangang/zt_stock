@@ -33,6 +33,10 @@
             <if test="nowPrice != 0">
                 and now_price=#{nowPrice}
             </if>
+
+            <if test="model == ''">
+                and (model='买入' OR model='加仓')
+            </if>
             <if test="model != null and model != ''">
                 and model=#{model}
             </if>
