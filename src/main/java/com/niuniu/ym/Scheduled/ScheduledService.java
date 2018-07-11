@@ -22,6 +22,7 @@ import com.niuniu.ym.entity.BuyStock;
 import com.niuniu.ym.filter.BuyStockFilter;
 import com.niuniu.ym.service.BuyStockService;
 import com.niuniu.ym.util.DateUtil;
+import com.niuniu.ym.util.SendEmailUtil;
 import javafx.beans.binding.When;
 import javazoom.jl.player.Player;
 import org.apache.commons.collections.CollectionUtils;
@@ -63,8 +64,9 @@ public class ScheduledService {
      * 0/20 25/1 9-14 ? * 2-6 *  周一-周五  9点30到下午3点，每分钟执行一次
      */
 
-//    @Scheduled(cron="0/10 25/1 9-14 ? * 2-6")
-    @Scheduled(cron = "*/10 * * * * ?")//每10秒执行一次
+
+//    @Scheduled(cron = "*/10 * * * * ?")//每10秒执行一次
+    @Scheduled(cron="0/10 26/1 9-14 ? * 2-6")
     public void zt_open_buy() {
         // 黄金分割比率
         StockFilter filter = new StockFilter();
@@ -118,7 +120,6 @@ public class ScheduledService {
                     if (dipo_openprice < 0 || dipo_openprice1_01 < 0 || dipo_zClose < 0) {
                         msg = "\n---->《《《盘中抄底》》》	跌到 涨停开盘价：" + stock.getlPrice() + "附近，关注买入！		回调（" + (day - 1) + "）天		股票：" + stock.getStockName() + "（" + stock.getStockCode() + "）	现价：" + nowPricestr + "<----\n";
                         System.out.println(msg);
-                        AppendFile.method1("/Users/liaoqiangang/Desktop/stock.txt", msg);
                         String model = "";
                         if(dipo_zClose<0){
                             model = "加仓";  //加仓点位
@@ -144,6 +145,9 @@ public class ScheduledService {
                         if (count == 0) {
                             buyStockService.insertBySelective(buyStock);
                             Toolkit.getDefaultToolkit().beep();
+                            //TODO 发送邮件 实现短信提醒
+                            String title = stock.getStockName()+"("+stock.getStockCode()+")：" +model+",现价："+nowPrice;
+                            SendEmailUtil.sendEmail(title,msg);
                         }
                     }
                 }
@@ -158,7 +162,7 @@ public class ScheduledService {
                 if (dipo >= 0 && shouhui >= 0) {
                     msg = "\n---->《尾盘关注》	跌破、拉回，关注买入！		回调（" + (day - 1) + "）天	股票：" + stock.getStockName() + "（" + stock.getStockCode() + "）	现价：" + nowPrice + "	涨停开盘价：" + stock.getlPrice() + "<----\n";
                     System.out.println(msg);
-                    AppendFile.method1("/Users/liaoqiangang/Desktop/stock.txt", msg);
+//                    AppendFile.method1("/Users/liaoqiangang/Desktop/stock.txt", msg);
                 }
             }
         } catch (Exception e) {
