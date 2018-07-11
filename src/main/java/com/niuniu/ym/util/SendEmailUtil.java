@@ -29,8 +29,7 @@ public class SendEmailUtil {
     public static void sendEmail(String titile,String message){
 
         try {
-            sendEmail("271476372@qq.com", "lqg271476372", titile, message,
-                    new String[]{"18500324922@wo.cn"});
+           
             /*SendEmailUtil.sendEmail("xxxxx@qq.com", "xxxxxxx", titile, message,
                     new String[] { "xxxxx@gmail.com", "xxxx@qq.com" });*/
         } catch (Exception e) {
