@@ -30,8 +30,7 @@ public class SendEmailUtil {
 
         try {
            
-            /*SendEmailUtil.sendEmail("xxxxx@qq.com", "xxxxxxx", titile, message,
-                    new String[] { "xxxxx@gmail.com", "xxxx@qq.com" });*/
+
         } catch (Exception e) {
             e.printStackTrace();
         }

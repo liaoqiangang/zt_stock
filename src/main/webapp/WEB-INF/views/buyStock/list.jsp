@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	function resetSubmit() {
 	    $("#model").val("");
 	    $("#day").val("");
-	    $("#input[name='createTime']").val("");
+	    $("input[name='createTime']").val("");
         var form = $("#pagerForm");
         console.log(form);
         navTabSearch(form);
@@ -96,7 +96,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 						<td>
 
-							<a href="http://image.sinajs.cn/newchart/min/n/${item.fenshi}.gif" target="dialog" width="888" height="518" rel="listSysMenu" >
+							<a href="<%=basePath%>stock/detail?stockCode=${item.stockCode}" target="navTab" >
 								<c:out value="${item.stockCode}" />
 							</a>
 
@@ -124,7 +124,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<td><c:out value="${item.ylPortal}%" /></td>
 						<td><c:out value="${item.stockName}" /></td>
 						<td>
-							<a href="http://image.sinajs.cn/newchart/min/n/${item.fenshi}.gif" target="dialog" width="888" height="518" rel="listSysMenu" >
+							<a href="<%=basePath%>stock/detail?stockCode=${item.stockCode}" target="navTab" >
 								<c:out value="${item.stockCode}" />
 							</a>
 						</td>

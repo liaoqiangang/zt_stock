@@ -429,4 +429,17 @@ public class StockController extends BaseController {
         return null;
     }
 
+
+    /**
+     * 跳转到首页
+     *
+     * @return
+     */
+    @RequestMapping("/detail")
+    public String detail(String stockCode,ModelMap modelMap) {
+        StockType type = new StockType(stockCode);
+        String stockParamer = type.getStockType()+stockCode;
+        modelMap.put("stockParamer",stockParamer);
+        return "/stock/detail";
+    }
 }
