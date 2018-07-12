@@ -440,6 +440,7 @@ public class StockController extends BaseController {
         StockType type = new StockType(stockCode);
         String stockParamer = type.getStockType()+stockCode;
         modelMap.put("stockParamer",stockParamer);
+        modelMap.put("stockCode",stockCode);
         return "/stock/detail";
     }
 }

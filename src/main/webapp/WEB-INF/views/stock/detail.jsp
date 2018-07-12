@@ -34,11 +34,28 @@
 </style>
 <script type="text/javascript">
     var _basePath = "<%=basePath%>";
+    
+    function nextStock() {
+        var getTimestamp=new Date().getTime();
+        var url = "<%=basePath%>stock/detail?stockCode=${stockCode}&timestamp="+getTimestamp;
+        console.log(url);
+        navTab.reload(url);
+    }
 
 </script>
 
 
 <div class="pageContent">
+
+    <div class="panelBar">
+        <ul class="toolBar">
+            <li>
+                <a class="add" onclick="nextStock(0)"><span>刷新</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
     <div class="pageFormContent nowrap" layoutH="56">
         <div class="tabs">
             <div class="tabsHeader">
