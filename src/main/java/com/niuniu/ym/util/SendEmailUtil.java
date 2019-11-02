@@ -30,6 +30,8 @@ public class SendEmailUtil {
 
         try {
            
+            SendEmailUtil.sendEmail("271476372@qq.com", "fpdqolxrzlixbiab", titile, message,
+                    new String[] { "18500324922@wo.cn" });
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -127,8 +129,9 @@ public class SendEmailUtil {
          * @param toEmilAddress
          *            收件人地址
          */
-        SendEmailUtil.sendEmail("xxxxx@qq.com", "xxxxxxx", "testEmail", "testcontent",
-                new String[] { "xxxxx@gmail.com", "xxxx@qq.com" });
+
+        SendEmailUtil.sendEmail("271476372@qq.com", "fpdqolxrzlixbiab", "titile", "message",
+                new String[] { "18500324922@wo.cn" });
     }
 }
 

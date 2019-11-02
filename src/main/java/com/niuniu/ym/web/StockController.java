@@ -48,6 +48,17 @@ public class StockController extends BaseController {
     }
 
     /**
+     * 跳转到首页
+     *
+     * @return
+     */
+    @RequestMapping("index")
+    public String indexBak() {
+
+        return "/index_bak";
+    }
+
+    /**
      * 预测页面
      *
      * @return

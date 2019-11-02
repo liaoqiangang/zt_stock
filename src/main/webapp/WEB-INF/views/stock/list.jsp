@@ -128,7 +128,11 @@ function refreshListPage(){
 					</c:choose>
 					<c:choose>
 						<c:when test="${item.orderNum==1 }">
-							<td style="color:red" id="show_${status.count}"><c:out value="${item.stockName}"/>(<c:out value="${item.stockCode}"/>)</td>
+							<td style="color:red" id="show_${status.count}">
+								<a href="<%=basePath%>stock/detail?stockCode=${item.stockCode}" target="navTab" >
+									<c:out value="${item.stockName}"/>(<c:out value="${item.stockCode}"/>)
+								</a>
+							</td>
 							<td style="color:red" id="reason_${status.count}">
 								${item.season }
 							</td>
@@ -137,7 +141,11 @@ function refreshListPage(){
 							<td style="color:red"><fmt:formatDate value="${item.selTime }" pattern="yyyy-MM-dd"/></td>
 						</c:when>
 						<c:otherwise>
-							<td><c:out value="${item.stockName}"/>(<c:out value="${item.stockCode}"/>)</td>
+							<td>
+								<a href="<%=basePath%>stock/detail?stockCode=${item.stockCode}" target="navTab" >
+									<c:out value="${item.stockName}"/>(<c:out value="${item.stockCode}"/>)
+								</a>
+							</td>
 							<td id="reason_${status.count}">
 								${item.season }
 							</td>

@@ -111,23 +111,23 @@ function clickgp(){
 
 				<div class="accordion" fillSpace="sidebar">
 					<div class="accordionHeader">
-						<h2><span>Folder</span>股票池</h2>
+						<h2><span>Folder</span>股市投资</h2>
 					</div>
 					<div class="accordionContent">
 						<ul class="tree treeFolder">
-							<li><a href="<%=basePath%>stock/list" target="navTab" rel="listSysMenu" id="gupiao">涨停股</a></li>
+							<li><a href="<%=basePath%>stock/list" target="navTab" rel="listSysMenu" id="gupiao">股票池</a></li>
 
 							<li><a href="<%=basePath%>maintain/buyStock/list" target="navTab" rel="listSysMenu" id="buy">关注买入</a></li>
+
+							<li><a href="<%=basePath%>stock/yuce" target="navTab" rel="listSysMenu">预测</a></li>
 							<%--<li><a href="<%=basePath%>stock/list?zjby=1" target="navTab" rel="listSysMenu" id="gupiao">持仓</a></li>--%>
 
 							<%-- <li><a href="<%=basePath%>stock/list?type=2&selType=1" target="navTab" rel="listSysMenu">圈子</a></li>
-							
+
 							<li><a href="<%=basePath%>stock/list?type=0&selType=1" target="navTab" rel="listSysMenu">优股籍</a></li>
 
 							<li><a href="<%=basePath%>stock/list?type=1&selType=1" target="navTab" rel="listSysMenu">短线宝</a></li>
-							
-							<li><a href="<%=basePath%>stock/yuce" target="navTab" rel="listSysMenu">预测</a></li>
-							
+
 	 						<li><a href="<%=basePath%>maintain/stockInfo/list" target="navTab" rel="listSysMenu">上市公司列表</a></li>
 							 --%>
 							 <%-- <li><a href="<%=basePath%>fetch/tofetchstock/000001" target="navTab" rel="listSysMenu">抓取</li>  --%>
@@ -144,6 +144,8 @@ function clickgp(){
 							<li><a href="https://www.sogou.com/" target="navTab" rel="listSysMenu">搜狗</a></li>
 
 							<li><a href="https://www.so.com/" target="navTab" rel="listSysMenu">360搜索</a></li>
+
+							<li><a href="https://tool.lu/" target="navTab" rel="listSysMenu">工具箱</a></li>
 						</ul>
 					</div>
 				</div>
@@ -173,7 +175,7 @@ function clickgp(){
 <!-- 								<span>欢迎进入豆豆后台管理系统</span> -->
 								<center>
 								<span style="font-family:STKaiti;color:red;font-size: 38px;text-align: center;">
-									投资有风险，入市需谨慎！
+									格物致新,厚德泽人！
 								</span>
 								</center>
 							</p>
@@ -182,34 +184,6 @@ function clickgp(){
 								<center>
 									<img src="<%=basePath%>/resources/images/lizhi.jpg" style="height:458px;" />
 								</center>
-								<!-- <br/>
-								<br/>
-								<table class="list" width="100%" layoutH="115" style="text-align: center;border: 0">
-									<thead>
-										<tr>
-											<th colspan="2">名称</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td>内容</td>
-											<td>内容</td>
-										</tr>
-										<tr>
-											<td>内容</td>
-											<td>内容</td>
-										</tr>
-										<tr>
-											<td>内容</td>
-											<td>内容</td>
-										</tr>
-										<tr>
-											<td>内容</td>
-											<td>内容</td>
-										</tr>
-										
-									</tbody>
-								</table> -->
 						</div>
 					</div>
 				</div>
